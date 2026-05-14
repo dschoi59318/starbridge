@@ -24,7 +24,6 @@
 body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(--text);min-height:100vh;}
 .sb-wrap{max-width:780px;margin:0 auto;padding:20px 16px 60px;}
 
-/* 헤더 */
 .sb-header{background:var(--white);border-radius:var(--radius);padding:18px 20px;margin-bottom:14px;border:1px solid var(--gray-border);box-shadow:var(--shadow);}
 .sb-header-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px;}
 .sb-logo{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;}
@@ -39,7 +38,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 .sb-mode-btn{padding:7px 18px;border-radius:var(--radius-pill);border:1.5px solid var(--gray-border);background:var(--white);font-size:12px;cursor:pointer;color:var(--gray-text);font-family:'Noto Sans KR',sans-serif;font-weight:500;transition:all 0.15s;}
 .sb-mode-btn.active{background:var(--blue);color:var(--white);border-color:var(--blue);}
 
-/* 언어 */
 .sb-lang-section{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
 .sb-lang-box{background:var(--white);border:1px solid var(--gray-border);border-radius:var(--radius);padding:12px 14px;box-shadow:var(--shadow);}
 .sb-lang-title{font-size:11px;font-weight:700;margin-bottom:9px;display:flex;align-items:center;gap:5px;}
@@ -51,19 +49,16 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 .sb-lang-pill.active-w{background:var(--blue);color:var(--white);border-color:var(--blue);}
 .sb-lang-note{font-size:10px;color:var(--gray-text);margin-top:8px;display:flex;align-items:center;gap:4px;}
 
-/* 통계 */
 .sb-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;}
 .sb-stat{background:var(--white);border:1px solid var(--gray-border);border-radius:var(--radius-sm);padding:10px 8px;text-align:center;box-shadow:var(--shadow);}
 .sb-stat-num{font-size:18px;font-weight:700;color:var(--text);}
 .sb-stat-lbl{font-size:10px;color:var(--gray-text);margin-top:2px;}
 
-/* 트렌딩 */
 .sb-trending{background:var(--white);border:1px solid var(--gray-border);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;box-shadow:var(--shadow);}
 .sb-trend-lbl{font-size:11px;font-weight:700;color:var(--gray-text);white-space:nowrap;}
 .sb-trend-tag{font-size:11px;padding:3px 10px;border-radius:var(--radius-pill);background:var(--gray-bg);border:1px solid var(--gray-border);color:var(--text);cursor:pointer;transition:all 0.12s;}
 .sb-trend-tag:hover{border-color:var(--blue);color:var(--blue);}
 
-/* 필터 */
 .sb-filter-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px;align-items:center;}
 .sb-ftag{padding:6px 14px;border-radius:var(--radius-pill);border:1px solid var(--gray-border);background:var(--white);font-size:12px;cursor:pointer;color:var(--gray-text);transition:all 0.12s;font-family:'Noto Sans KR',sans-serif;}
 .sb-ftag.on{background:var(--text);color:var(--white);border-color:var(--text);}
@@ -72,17 +67,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 .sb-search-wrap input:focus{border-color:var(--blue);}
 .sb-s-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--gray-text);pointer-events:none;}
 
-/* 뉴스 그리드 */
 .sb-news-grid{display:grid;gap:16px;}
-
-/* 카드 */
 .sb-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--gray-border);overflow:hidden;box-shadow:var(--shadow);transition:transform 0.15s,box-shadow 0.15s;}
 .sb-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.11);}
 .sb-card.k-side{border-left:4px solid var(--pink);border-radius:0 var(--radius) var(--radius) 0;}
 .sb-card.w-side{border-left:4px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;}
 
 /* 썸네일 */
-.sb-thumb{position:relative;width:100%;height:200px;overflow:hidden;background:var(--gray-bg);cursor:pointer;}
+.sb-thumb{position:relative;width:100%;height:200px;overflow:hidden;background:var(--gray-bg);cursor:pointer;display:block;text-decoration:none;}
 .sb-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s;}
 .sb-card:hover .sb-thumb img{transform:scale(1.03);}
 .sb-thumb-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;}
@@ -92,13 +84,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 .sb-thumb-top-right{position:absolute;top:10px;right:10px;}
 .sb-thumb-src-badge{font-size:10px;padding:3px 9px;border-radius:var(--radius-pill);font-weight:600;background:rgba(0,0,0,0.65);color:#fff;display:flex;align-items:center;gap:3px;}
 .sb-thumb-time{font-size:10px;padding:3px 8px;border-radius:var(--radius-sm);background:rgba(0,0,0,0.65);color:#fff;font-family:monospace;font-weight:600;}
-.sb-thumb-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;width:100%;height:100%;}
+.sb-thumb-loading{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;height:200px;background:var(--gray-bg);}
+.sb-thumb-fallback{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;height:200px;}
+
 .sb-img-note{font-size:10px;color:var(--gray-text);padding:5px 14px;background:var(--gray-bg);display:flex;align-items:center;gap:5px;border-bottom:1px solid var(--gray-border);}
 .sb-img-badge{font-size:10px;padding:1px 7px;border-radius:var(--radius-pill);font-weight:600;}
 .sb-yt-badge{background:var(--red-light);color:var(--red-dark);}
-.sb-sns-badge{background:var(--blue-light);color:var(--blue-dark);}
 
-/* 카드 내부 */
 .sb-card-inner{padding:16px 18px;}
 .sb-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:10px;}
 .sb-card-meta{display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
@@ -113,18 +105,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 .sb-ts-time{font-size:13px;font-weight:700;color:var(--text);font-family:monospace;}
 .sb-ts-ago{font-size:10px;color:var(--green);font-weight:600;}
 
-/* 제목 & 본문 */
-.sb-card-title{font-size:16px;font-weight:700;color:var(--text);line-height:1.5;margin-bottom:10px;cursor:pointer;}
-.sb-card-title:hover{color:var(--blue);}
+.sb-card-title{font-size:16px;font-weight:700;color:var(--text);line-height:1.5;margin-bottom:10px;}
 .sb-card-body{font-size:13px;color:var(--gray-text);line-height:1.85;margin-bottom:12px;word-break:keep-all;}
 
-/* 번역 탭 */
 .sb-trans-tabs{display:flex;gap:5px;margin-bottom:8px;flex-wrap:wrap;}
 .sb-trans-tab{padding:4px 11px;border-radius:var(--radius-pill);font-size:11px;cursor:pointer;border:1px solid var(--gray-border);background:var(--white);color:var(--gray-text);transition:all 0.12s;font-family:'Noto Sans KR',sans-serif;}
 .sb-trans-tab.active-k{background:var(--pink);color:var(--white);border-color:var(--pink);}
 .sb-trans-tab.active-w{background:var(--blue);color:var(--white);border-color:var(--blue);}
 
-/* 번역 박스 */
 .sb-trans-box{border-radius:0 var(--radius-sm) var(--radius-sm) var(--radius-sm);padding:12px 14px;margin-bottom:12px;}
 .sb-trans-box-k{background:var(--pink-light);border-left:3px solid var(--pink);}
 .sb-trans-box-w{background:var(--blue-light);border-left:3px solid var(--blue);}
@@ -133,7 +121,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 .sb-trans-badge-w{color:var(--blue-dark);}
 .sb-trans-text{font-size:13px;color:var(--text);line-height:1.75;word-break:keep-all;}
 
-/* 카드 푸터 */
 .sb-card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--gray-border);}
 .sb-action-row{display:flex;gap:6px;}
 .sb-act-btn{display:flex;align-items:center;gap:3px;font-size:11px;color:var(--gray-text);cursor:pointer;padding:4px 10px;border-radius:var(--radius-pill);border:1px solid var(--gray-border);background:transparent;font-family:'Noto Sans KR',sans-serif;transition:all 0.12s;}
@@ -143,7 +130,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 
 /* 숏츠 */
 .sb-shorts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px 16px;border-top:1px solid var(--gray-border);background:var(--gray-bg);}
-.sb-short-card{border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--gray-border);background:var(--white);cursor:pointer;position:relative;transition:transform 0.15s;}
+.sb-short-card{border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--gray-border);background:var(--white);cursor:pointer;position:relative;transition:transform 0.15s;text-decoration:none;display:block;}
 .sb-short-card:hover{transform:translateY(-2px);}
 .sb-short-thumb{height:70px;overflow:hidden;background:var(--gray-bg);display:flex;align-items:center;justify-content:center;}
 .sb-short-thumb img{width:100%;height:100%;object-fit:cover;}
@@ -152,7 +139,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 .sb-short-title{font-size:10px;color:var(--text);font-weight:600;line-height:1.4;margin-bottom:2px;}
 .sb-short-views{font-size:10px;color:var(--gray-text);}
 
-/* 푸터 */
+/* 로딩 스피너 */
+.sb-spinner{width:28px;height:28px;border:3px solid var(--gray-border);border-top-color:var(--blue);border-radius:50%;animation:spin 0.8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
 .sb-footer{text-align:center;margin-top:32px;padding-top:20px;border-top:1px solid var(--gray-border);}
 .sb-footer-logo{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--text);font-size:14px;margin-bottom:6px;}
 .sb-footer-text{font-size:11px;color:var(--gray-text);line-height:1.9;}
@@ -161,7 +151,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
   .sb-lang-section{grid-template-columns:1fr;}
   .sb-stats{grid-template-columns:repeat(2,1fr);}
   .sb-shorts{grid-template-columns:repeat(2,1fr);}
-  .sb-thumb{height:170px;}
+  .sb-thumb,.sb-thumb-loading,.sb-thumb-fallback{height:170px;}
   .sb-search-wrap input{width:130px;}
 }
 </style>
@@ -211,10 +201,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 </div>
 
 <div class="sb-stats">
-  <div class="sb-stat"><div class="sb-stat-num">42</div><div class="sb-stat-lbl">오늘 전체 뉴스</div></div>
+  <div class="sb-stat"><div class="sb-stat-num">6</div><div class="sb-stat-lbl">오늘 전체 뉴스</div></div>
   <div class="sb-stat"><div class="sb-stat-num">4</div><div class="sb-stat-lbl">K-Star 언어</div></div>
   <div class="sb-stat"><div class="sb-stat-num">2</div><div class="sb-stat-lbl">Global 언어</div></div>
-  <div class="sb-stat"><div class="sb-stat-num">18</div><div class="sb-stat-lbl">숏츠 생성</div></div>
+  <div class="sb-stat"><div class="sb-stat-num" id="yt-status">🔄</div><div class="sb-stat-lbl">YouTube API</div></div>
 </div>
 
 <div class="sb-trending">
@@ -247,148 +237,171 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
   <div class="sb-footer-logo">StarBridge</div>
   <div class="sb-footer-text">
     K-Star & Global 연예 뉴스를 실시간으로 4개 언어로 번역 제공<br>
-    유튜브 썸네일: YouTube Data API 공식 제공 · SNS: 공식 계정 임베드<br>
+    유튜브 썸네일: YouTube Data API v3 공식 연동<br>
     © 2026 StarBridge · Powered by AI Translation
   </div>
 </div>
 </div>
 
 <script>
-// 실제 존재하는 유튜브 영상 ID 사용
-// aespa - Supernova MV: 4r0vE4GdQpU
-// aespa - Drama MV: XKt-OqYKqPM  
-// BTS - Butter: WNweEQFn3-w
-// BTS - Dynamite: gdZLi9oWNZg
-// Taylor Swift - Anti-Hero: b1kbLwvqugk
-// Taylor Swift - Shake It Off: nfWlot6h_JM
-// Billie Eilish - bad guy: DyDfgMOUjCI
-// Beyonce - CUFF IT: Y9o_MFRFe7Y
-// BLACKPINK - Pink Venom: gQlMMD8auMs
-// NewJeans - Hype Boy: 0oDRDNh2Coc
+// =============================================
+// ★ 여기에 발급받은 YouTube API 키를 넣으세요 ★
+const YT_API_KEY = 'AIzaSyApDXYSkk1gbgAvGT-8Jwet3rMTeN5o-4A';
+// =============================================
 
-const news=[
+const news = [
   {
-    id:1,side:'k',cat:'kpop',hot:true,hasShorts:true,
+    id:1, side:'k', cat:'kpop', hot:true, hasShorts:true,
     source:'Naver 연예',
-    publishedAt:new Date(Date.now()-3*60*1000),
-    imgType:'youtube',ytId:'4r0vE4GdQpU',searchKeyword:'aespa Supernova MV',
-    imgNote:'유튜브 공식 MV 썸네일 (YouTube Data API 제공)',
+    publishedAt: new Date(Date.now() - 3*60*1000),
+    searchKeyword: 'aespa Supernova official MV',
+    shortsKeywords: ['aespa Drama MV', 'aespa Spicy MV', 'aespa Next Level MV'],
     title:'aespa, 컴백 D-3 티저 공개… 타이틀곡 "WDA" 예고',
-    body:'SM엔터테인먼트 걸그룹 aespa가 오는 17일 새 앨범 발매를 앞두고 타이틀곡 "WDA" 티저를 공개했다. 이번 앨범은 aespa의 세계관을 한층 확장한 작품으로, 독특한 콘셉트와 강렬한 퍼포먼스로 글로벌 팬들의 큰 기대를 받고 있다. 특히 타이틀곡 "WDA"는 중독성 강한 후렴구와 aespa 특유의 미래적 사운드가 결합된 곡으로 알려져 있으며, 티저 공개 직후 전 세계 트위터 트렌딩 1위에 오르며 뜨거운 반응을 얻고 있다.',
+    body:'SM엔터테인먼트 걸그룹 aespa가 오는 17일 새 앨범 발매를 앞두고 타이틀곡 "WDA" 티저를 공개했다. 이번 앨범은 aespa의 세계관을 한층 확장한 작품으로 독특한 콘셉트와 강렬한 퍼포먼스가 특징이다. 티저 공개 직후 전 세계 트위터 트렌딩 1위에 오르며 글로벌 팬들의 뜨거운 반응을 얻고 있다.',
     trans:{
-      en:"aespa is making a highly-anticipated comeback in just 3 days. SM Entertainment's powerhouse girl group has unveiled the teaser for their new title track 'WDA' ahead of their May 17th album release. The teaser immediately trended #1 worldwide on Twitter, with fans from over 80 countries reacting to the group's signature futuristic concept and addictive sound. This comeback marks a new chapter in aespa's ever-expanding universe.",
-      es:"aespa anuncia su muy esperado regreso en solo 3 días. El poderoso grupo femenino de SM Entertainment ha revelado el teaser de su nueva canción título 'WDA' antes del lanzamiento del álbum el 17 de mayo. El teaser se convirtió inmediatamente en tendencia #1 mundial en Twitter, con fans de más de 80 países reaccionando al concepto futurista característico del grupo y su sonido adictivo.",
-      pt:"aespa anuncia seu tão aguardado comeback em apenas 3 dias. O poderoso grupo feminino da SM Entertainment revelou o teaser de sua nova faixa título 'WDA' antes do lançamento do álbum em 17 de maio. O teaser imediatamente foi parar nos trending topics mundiais do Twitter, com fãs de mais de 80 países reagindo ao conceito futurista característico do grupo.",
-      kr:"aespa가 컴백 D-3를 앞두고 타이틀곡 'WDA' 티저를 공개했다. SM엔터테인먼트는 오는 17일 새 앨범 발매 일정을 확정했으며, 티저 공개 직후 전 세계 트위터 트렌딩 1위에 오르며 뜨거운 반응을 얻고 있다. 이번 앨범은 aespa 특유의 미래적 세계관을 한층 확장한 작품으로 기대를 모으고 있다."
+      en:"aespa is making a highly-anticipated comeback in 3 days. SM Entertainment's girl group unveiled the teaser for 'WDA' ahead of their May 17th album release. The teaser immediately trended #1 worldwide on Twitter, with fans from over 80 countries reacting to the group's futuristic concept.",
+      es:"aespa anuncia su regreso en 3 días. El grupo de SM Entertainment presentó el teaser de 'WDA' antes del lanzamiento del álbum el 17 de mayo. El teaser se convirtió en tendencia #1 mundial en Twitter con fans de más de 80 países.",
+      pt:"aespa anuncia comeback em 3 dias. O grupo da SM Entertainment revelou o teaser de 'WDA' antes do lançamento em 17 de maio. O teaser ficou em #1 nos trending topics mundiais do Twitter com fãs de mais de 80 países.",
+      kr:"aespa가 컴백 D-3를 앞두고 타이틀곡 'WDA' 티저를 공개했다. 티저 공개 직후 전 세계 트위터 트렌딩 1위에 오르며 뜨거운 반응이 이어지고 있다."
     },
-    stars:['aespa'],
-    shorts:[
-      {title:'aespa Supernova MV',views:'2.1M',ytId:'4r0vE4GdQpU'},
-      {title:'aespa Drama MV',views:'890K',ytId:'XKt-OqYKqPM'},
-      {title:'aespa 컴백 카운트다운',views:'540K',ytId:'gQlMMD8auMs'}
-    ]
+    stars:['aespa']
   },
   {
-    id:2,side:'w',cat:'pop',hot:true,hasShorts:true,
+    id:2, side:'w', cat:'pop', hot:true, hasShorts:true,
     source:'Billboard',
-    publishedAt:new Date(Date.now()-23*60*1000),
-    imgType:'youtube',ytId:'b1kbLwvqugk',searchKeyword:'Taylor Swift Anti Hero MV',
-    imgNote:'유튜브 공식 MV 썸네일 (YouTube Data API 제공)',
+    publishedAt: new Date(Date.now() - 23*60*1000),
+    searchKeyword: 'Taylor Swift Anti Hero official MV',
+    shortsKeywords: ['Taylor Swift Shake It Off MV', 'Taylor Swift Blank Space MV', 'Taylor Swift Bad Blood MV'],
     title:"Taylor Swift's 'Tortured Poets Department' breaks Spotify single-week record",
-    body:"Taylor Swift's latest album 'The Tortured Poets Department' has shattered Spotify's all-time record for most streams in a single week, surpassing 1 billion plays within just 5 days of release. The achievement makes Swift the first artist in history to reach this milestone so quickly. The album, which features 31 tracks including collaborations with Post Malone and Florence + The Machine, has dominated charts in over 100 countries simultaneously, cementing Swift's status as the world's biggest pop star.",
+    body:"Taylor Swift's latest album has shattered Spotify's all-time record for most streams in a single week, surpassing 1 billion plays within just 5 days. The achievement makes Swift the first artist in history to reach this milestone so quickly. The 31-track album dominated charts in over 100 countries simultaneously.",
     trans:{
-      en:"Taylor Swift's 'The Tortured Poets Department' has broken Spotify's single-week streaming record by surpassing 1 billion streams in just 5 days — the fastest any album has reached this milestone in music history. The 31-track album, featuring Post Malone and Florence + The Machine, has topped charts in over 100 countries simultaneously.",
-      kr:"테일러 스위프트의 새 앨범 'The Tortured Poets Department'가 스포티파이 주간 스트리밍 최고 기록을 경신하며 발매 5일 만에 10억 스트림을 돌파했다. 음악 역사상 가장 빠른 기록이다. 포스트 말론, 플로렌스 + 더 머신과 협업한 31개 트랙으로 구성된 이 앨범은 100개국 이상에서 동시에 차트 1위를 기록했다."
+      en:"Taylor Swift's album broke Spotify's single-week record, surpassing 1 billion streams in just 5 days — the fastest any album has reached this milestone in music history.",
+      kr:"테일러 스위프트의 새 앨범이 스포티파이 주간 스트리밍 최고 기록을 경신하며 발매 5일 만에 10억 스트림을 돌파했다. 음악 역사상 가장 빠른 기록이다."
     },
-    stars:['TaylorSwift'],
-    shorts:[
-      {title:'Taylor Swift - Anti-Hero MV',views:'5.8M',ytId:'b1kbLwvqugk'},
-      {title:'Taylor Swift - Shake It Off',views:'3.2M',ytId:'nfWlot6h_JM'},
-      {title:'팬들의 반응 총정리',views:'1.7M',ytId:'WNweEQFn3-w'}
-    ]
+    stars:['TaylorSwift']
   },
   {
-    id:3,side:'k',cat:'kdrama',hot:false,hasShorts:true,
+    id:3, side:'k', cat:'kdrama', hot:false, hasShorts:true,
     source:'Naver TV',
-    publishedAt:new Date(Date.now()-68*60*1000),
-    imgType:'youtube',ytId:'gQlMMD8auMs',searchKeyword:'BLACKPINK Pink Venom MV',
-    imgNote:'유튜브 공식 예고편 썸네일 (YouTube Data API 제공)',
+    publishedAt: new Date(Date.now() - 68*60*1000),
+    searchKeyword: 'BLACKPINK Pink Venom official MV',
+    shortsKeywords: ['NewJeans Hype Boy MV', 'IVE After Like MV', 'TWICE Cheer Up MV'],
     title:'차은우·박은빈 주연 드라마, 넷플릭스 전세계 비영어권 1위 등극',
-    body:'넷플릭스 오리지널 한국 드라마가 공개 첫 주 만에 전세계 비영어권 TV 부문 1위를 차지했다. 두 배우의 뛰어난 연기력과 탄탄한 스토리라인이 전 세계 시청자들의 마음을 사로잡았다는 평이다. 특히 미국, 일본, 동남아시아 등 주요 시장에서 동시에 1위를 기록하며 K-드라마의 글로벌 경쟁력을 다시 한번 입증했다. 넷플릭스 측은 "역대 한국 드라마 중 가장 빠른 속도로 글로벌 시청 시간 1억 시간을 돌파했다"고 밝혔다.',
+    body:'넷플릭스 오리지널 한국 드라마가 공개 첫 주 만에 전세계 비영어권 TV 부문 1위를 차지했다. 두 배우의 뛰어난 연기력과 탄탄한 스토리라인이 전 세계 시청자들의 마음을 사로잡았다. 미국, 일본, 동남아시아 등 주요 시장에서 동시 1위를 달성했으며, 역대 한국 드라마 중 가장 빠른 속도로 글로벌 시청 시간 1억 시간을 돌파했다.',
     trans:{
-      en:"The latest Korean Netflix Original drama starring Cha Eun-woo and Park Eun-bin has topped Netflix's global non-English TV chart in its very first week. The show dominated in key markets including the US, Japan, and Southeast Asia simultaneously. Netflix confirmed it became the fastest Korean drama ever to surpass 100 million viewing hours globally, further proving K-drama's unstoppable rise on the world stage.",
-      es:"El último drama original coreano de Netflix protagonizado por Cha Eun-woo y Park Eun-bin ha liderado el ranking global de series no inglesas de Netflix en su primera semana. El programa dominó en mercados clave como EE.UU., Japón y el Sudeste Asiático simultáneamente. Netflix confirmó que se convirtió en el drama coreano más rápido en superar los 100 millones de horas de visualización a nivel mundial.",
-      pt:"O mais recente drama original coreano da Netflix estrelado por Cha Eun-woo e Park Eun-bin liderou o ranking global de séries não inglesas da Netflix em sua primeira semana. O programa dominou em mercados-chave como EUA, Japão e Sudeste Asiático simultaneamente. A Netflix confirmou que se tornou o drama coreano mais rápido a ultrapassar 100 milhões de horas de visualização globalmente.",
-      kr:"차은우·박은빈 주연 넷플릭스 오리지널 한국 드라마가 공개 첫 주 만에 전세계 비영어권 1위를 기록했다. 미국, 일본, 동남아시아 등 주요 시장에서 동시 1위를 달성했으며, 넷플릭스는 역대 한국 드라마 중 가장 빠른 속도로 글로벌 시청 시간 1억 시간을 돌파했다고 밝혔다."
+      en:"The latest Korean Netflix Original starring Cha Eun-woo and Park Eun-bin topped Netflix's global non-English TV chart in its very first week, dominating in the US, Japan, and Southeast Asia simultaneously.",
+      es:"El último drama original coreano de Netflix protagonizado por Cha Eun-woo y Park Eun-bin lideró el ranking global de series no inglesas en su primera semana, dominando en EE.UU., Japón y el Sudeste Asiático.",
+      pt:"O mais recente drama original coreano da Netflix estrelado por Cha Eun-woo e Park Eun-bin liderou o ranking global de séries não inglesas em sua primeira semana.",
+      kr:"차은우·박은빈 주연 넷플릭스 오리지널 드라마가 공개 첫 주 만에 전세계 비영어권 1위를 기록했다. 역대 한국 드라마 중 가장 빠른 속도로 글로벌 시청 1억 시간을 돌파했다."
     },
-    stars:['ChaEunwoo','ParkEunbin'],
-    shorts:[
-      {title:'BLACKPINK - Pink Venom MV',views:'4.3M',ytId:'gQlMMD8auMs'},
-      {title:'NewJeans - Hype Boy MV',views:'2.1M',ytId:'0oDRDNh2Coc'},
-      {title:'BTS - Butter MV',views:'980K',ytId:'WNweEQFn3-w'}
-    ]
+    stars:['ChaEunwoo','ParkEunbin']
   },
   {
-    id:4,side:'w',cat:'pop',hot:false,hasShorts:false,
+    id:4, side:'w', cat:'pop', hot:false, hasShorts:false,
     source:'Rolling Stone',
-    publishedAt:new Date(Date.now()-142*60*1000),
-    imgType:'youtube',ytId:'DyDfgMOUjCI',searchKeyword:'Billie Eilish bad guy MV',
-    imgNote:'유튜브 공식 MV 썸네일 (YouTube Data API 제공)',
+    publishedAt: new Date(Date.now() - 142*60*1000),
+    searchKeyword: 'Billie Eilish bad guy official MV',
+    shortsKeywords: [],
     title:"Billie Eilish announces world tour — Seoul stop confirmed for September 2026",
-    body:"Billie Eilish has officially announced her highly-anticipated world tour, with an Asia leg that includes a confirmed stop in Seoul, South Korea. The Grammy-winning artist will perform at the KSPO Dome in September 2026, marking her first solo concert in Korea in four years. Tickets are expected to sell out within minutes given the massive demand from Korean fans. The tour will also cover major cities across North America, Europe, and Australia before arriving in Asia.",
+    body:"Billie Eilish has officially announced her world tour with an Asia leg that includes Seoul, South Korea. The Grammy-winning artist will perform at KSPO Dome in September 2026, her first solo concert in Korea in four years. The tour covers major cities across North America, Europe, and Australia before arriving in Asia.",
     trans:{
-      en:"Billie Eilish has officially confirmed a Seoul stop as part of her upcoming world tour's Asia leg. The Grammy-winning artist will perform at KSPO Dome in September 2026 — her first solo show in Korea in four years. The announcement sent Korean fans into a frenzy, with the artist trending nationwide within minutes of the news breaking.",
-      kr:"빌리 아일리시가 월드 투어 아시아 일정을 공식 발표하며 서울 공연을 확정했다. 그래미 수상 아티스트인 그녀는 2026년 9월 KSPO돔에서 공연을 열 예정으로, 4년 만의 첫 한국 단독 공연이다. 발표 직후 한국 팬들의 폭발적인 반응이 이어지며 포털 사이트 실시간 검색어 1위에 올랐다."
+      en:"Billie Eilish confirmed Seoul as part of her world tour Asia leg, with a show at KSPO Dome in September 2026 — her first solo Korean show in four years.",
+      kr:"빌리 아일리시가 월드 투어 아시아 일정을 공식 발표하며 서울 공연을 확정했다. 2026년 9월 KSPO돔에서 열리며 4년 만의 첫 한국 단독 공연이다."
     },
-    stars:['BillieEilish'],
-    shorts:[]
+    stars:['BillieEilish']
   },
   {
-    id:5,side:'k',cat:'kpop',hot:true,hasShorts:true,
+    id:5, side:'k', cat:'kpop', hot:true, hasShorts:true,
     source:'Soompi',
-    publishedAt:new Date(Date.now()-195*60*1000),
-    imgType:'youtube',ytId:'gdZLi9oWNZg',searchKeyword:'BTS Dynamite MV',
-    imgNote:'유튜브 공식 MV 썸네일 (YouTube Data API 제공)',
+    publishedAt: new Date(Date.now() - 195*60*1000),
+    searchKeyword: 'BTS Dynamite official MV',
+    shortsKeywords: ['BTS Butter official MV', 'BTS Boy With Luv MV', 'BTS Permission to Dance MV'],
     title:'BTS 정국, 깜짝 솔로 싱글 45개국 아이튠즈 1위 등극',
-    body:'BTS 멤버 정국이 군 복무 중 깜짝 솔로 싱글을 발매해 전 세계 팬들을 놀라게 했다. 발매 수 시간 만에 45개국 아이튠즈 차트 정상에 오르며 자신의 솔로 기록을 스스로 경신했다. 이는 K팝 역사상 군 복무 중인 아이돌이 발표한 노래 중 가장 빠른 아이튠즈 1위 기록으로, 정국의 글로벌 팬덤인 아미(ARMY)의 강력한 응집력을 다시 한번 보여주었다. 빅히트 뮤직 측은 "팬들에 대한 감사의 마음으로 준비한 선물"이라고 밝혔다.',
+    body:'BTS 멤버 정국이 군 복무 중 깜짝 솔로 싱글을 발매해 전 세계 팬들을 놀라게 했다. 발매 수 시간 만에 45개국 아이튠즈 차트 정상에 오르며 자신의 솔로 기록을 경신했다. 군 복무 중인 K팝 아이돌의 아이튠즈 최단 1위 기록으로, 글로벌 팬덤 아미의 강력한 응집력을 다시 한번 입증했다.',
     trans:{
-      en:"BTS member Jungkook surprised the world by releasing a solo single while still completing his mandatory military service. The track debuted at #1 on iTunes in 45 countries within just a few hours of release, breaking his own previous solo record. This marks the fastest iTunes chart-topping achievement by any K-pop idol currently serving in the military, showcasing the incredible power of BTS's global fanbase ARMY.",
-      es:"El miembro de BTS Jungkook sorprendió al mundo al lanzar un sencillo en solitario mientras aún cumple su servicio militar obligatorio. La canción debutó en el #1 de iTunes en 45 países en pocas horas, rompiendo su propio récord anterior. Esto marca el logro más rápido en la cima de iTunes por cualquier ídolo de K-pop actualmente en servicio militar.",
-      pt:"O membro do BTS Jungkook surpreendeu o mundo ao lançar um single solo enquanto ainda cumpre o serviço militar obrigatório. A faixa estreou no #1 do iTunes em 45 países em poucas horas, quebrando seu próprio recorde anterior. Isso marca a conquista mais rápida no topo do iTunes por qualquer ídolo de K-pop atualmente no serviço militar.",
-      kr:"BTS 정국이 군 복무 중 깜짝 솔로 싱글을 발매해 전 세계를 놀라게 했다. 발매 수 시간 만에 45개국 아이튠즈 1위를 달성하며 자신의 솔로 기록을 경신했다. 군 복무 중인 K팝 아이돌의 아이튠즈 최단 1위 기록으로, 글로벌 팬덤 아미의 강력한 응집력을 다시 한번 입증했다."
+      en:"BTS Jungkook surprised the world by releasing a solo single while completing military service. The track debuted at #1 on iTunes in 45 countries within hours, breaking his own record — the fastest by any K-pop idol currently serving in the military.",
+      es:"Jungkook de BTS sorprendió al mundo lanzando un single en solitario mientras cumple el servicio militar. La canción debutó en el #1 de iTunes en 45 países en pocas horas.",
+      pt:"Jungkook do BTS surpreendeu o mundo lançando um single solo enquanto cumpre o serviço militar. A faixa estreou no #1 do iTunes em 45 países em poucas horas.",
+      kr:"BTS 정국이 군 복무 중 깜짝 솔로 싱글을 발매해 발매 수 시간 만에 45개국 아이튠즈 1위를 달성했다. 글로벌 팬덤 아미의 강력한 응집력을 다시 한번 입증했다."
     },
-    stars:['BTS','Jungkook'],
-    shorts:[
-      {title:'BTS - Dynamite MV',views:'8.2M',ytId:'gdZLi9oWNZg'},
-      {title:'BTS - Butter MV',views:'3.5M',ytId:'WNweEQFn3-w'},
-      {title:'BTS - DNA MV',views:'6.1M',ytId:'WNweEQFn3-w'}
-    ]
+    stars:['BTS','Jungkook']
   },
   {
-    id:6,side:'w',cat:'pop',hot:true,hasShorts:true,
+    id:6, side:'w', cat:'pop', hot:true, hasShorts:true,
     source:'People',
-    publishedAt:new Date(Date.now()-253*60*1000),
-    imgType:'youtube',ytId:'Y9o_MFRFe7Y',searchKeyword:'Beyonce CUFF IT MV',
-    imgNote:'유튜브 공식 MV 썸네일 (YouTube Data API 제공)',
+    publishedAt: new Date(Date.now() - 253*60*1000),
+    searchKeyword: 'Beyonce CUFF IT official MV',
+    shortsKeywords: ['Beyonce Halo MV', 'Beyonce Crazy In Love MV'],
     title:"Beyoncé's Renaissance Act III film wins 3 MTV Movie Awards",
-    body:"Beyoncé had a triumphant night at the MTV Movie & TV Awards, with her Renaissance Act III concert film sweeping three major categories including Best Musical Performance, Best Choreography, and Best Visual Album Film. The win further cements the legacy of her Renaissance World Tour, which became the highest-grossing tour by a female artist in history, earning over $580 million. Accepting the award via video message, Beyoncé thanked her fans, known as the BeyHive, for their unwavering support throughout the Renaissance era.",
+    body:"Beyoncé had a triumphant night at the MTV Movie & TV Awards with her Renaissance Act III concert film sweeping Best Musical Performance, Best Choreography, and Best Visual Album Film. The wins cement the legacy of her Renaissance World Tour which became the highest-grossing tour by a female artist in history, earning over $580 million.",
     trans:{
-      en:"Beyoncé dominated the MTV Movie & TV Awards with her Renaissance Act III film, claiming Best Musical Performance, Best Choreography, and Best Visual Album Film. The wins add to the legacy of her record-breaking Renaissance World Tour, which grossed over $580 million — the highest ever for a female artist. Beyoncé thanked her BeyHive fans in an emotional acceptance message.",
-      kr:"비욘세의 르네상스 3막 필름이 MTV 무비 어워드에서 베스트 뮤지컬 퍼포먼스, 베스트 안무, 베스트 비주얼 앨범 필름 등 3개 부문을 석권했다. 이는 역대 여성 아티스트 최고 수익인 5억 8천만 달러를 기록한 르네상스 월드 투어의 위상을 더욱 공고히 하는 것이다. 비욘세는 영상 메시지를 통해 팬들에게 감사를 전했다."
+      en:"Beyoncé dominated the MTV Movie Awards with Renaissance Act III, claiming Best Musical Performance, Best Choreography, and Best Visual Album Film. Her Renaissance World Tour grossed over $580 million — the highest ever for a female artist.",
+      kr:"비욘세의 르네상스 3막 필름이 MTV 무비 어워드에서 3개 부문을 석권했다. 그녀의 르네상스 월드 투어는 역대 여성 아티스트 최고 수익인 5억 8천만 달러를 기록했다."
     },
-    stars:['Beyoncé'],
-    shorts:[
-      {title:"Beyoncé - CUFF IT MV",views:'7.1M',ytId:'Y9o_MFRFe7Y'},
-      {title:'Billie Eilish - bad guy MV',views:'4.4M',ytId:'DyDfgMOUjCI'}
-    ]
+    stars:['Beyoncé']
   }
 ];
 
 const LF={en:'🇺🇸',es:'🇲🇽',pt:'🇧🇷',kr:'🇰🇷'};
 const LN={en:'English',es:'Español',pt:'Português',kr:'한국어'};
-const KL=['en','es','pt','kr'],WL=['en','kr'];
-let mode='all',filter='all',kw='',kLang='en',wLang='en',openT={},likes={};
+const KL=['en','es','pt','kr'], WL=['en','kr'];
+let mode='all', filter='all', kw='', kLang='en', wLang='en', openT={}, likes={};
 
+// 유튜브 API로 가져온 영상 캐시
+const ytCache = {};
+
+// ===== 유튜브 Data API 검색 =====
+async function fetchYtVideo(keyword) {
+  if (ytCache[keyword]) return ytCache[keyword];
+  if (!YT_API_KEY || YT_API_KEY === 'YOUR_API_KEY_HERE') return null;
+  try {
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(keyword)}&type=video&maxResults=1&key=${YT_API_KEY}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.items && data.items.length > 0) {
+      const item = data.items[0];
+      const result = {
+        videoId: item.id.videoId,
+        title: item.snippet.title,
+        thumb: item.snippet.thumbnails.high ? item.snippet.thumbnails.high.url : item.snippet.thumbnails.default.url,
+        channel: item.snippet.channelTitle
+      };
+      ytCache[keyword] = result;
+      return result;
+    }
+  } catch(e) {
+    console.error('YouTube API 오류:', e);
+  }
+  return null;
+}
+
+// 모든 기사 썸네일 미리 로드
+async function preloadThumbnails() {
+  const statusEl = document.getElementById('yt-status');
+  if (!YT_API_KEY || YT_API_KEY === 'YOUR_API_KEY_HERE') {
+    if (statusEl) { statusEl.textContent = '⚠️'; statusEl.title = 'API 키 없음'; }
+    return;
+  }
+  if (statusEl) statusEl.textContent = '🔄';
+  try {
+    const promises = [];
+    for (const n of news) {
+      promises.push(fetchYtVideo(n.searchKeyword));
+      if (n.shortsKeywords) {
+        for (const sk of n.shortsKeywords) {
+          promises.push(fetchYtVideo(sk));
+        }
+      }
+    }
+    await Promise.all(promises);
+    if (statusEl) statusEl.textContent = '✅';
+    render();
+  } catch(e) {
+    if (statusEl) statusEl.textContent = '❌';
+  }
+}
+
+// ===== 시계 =====
 function pad(n){return String(n).padStart(2,'0');}
 function fDate(d){return `${d.getFullYear()}.${pad(d.getMonth()+1)}.${pad(d.getDate())}`;}
 function fTime(d){return `${pad(d.getHours())}:${pad(d.getMinutes())}`;}
@@ -407,47 +420,62 @@ function tick(){
   if(e1)e1.textContent=fDate(n);
   if(e2)e2.textContent=fTime(n)+':'+pad(n.getSeconds());
 }
-setInterval(tick,1000);tick();
+setInterval(tick,1000); tick();
 
-function ytThumb(id){return 'https://img.youtube.com/vi/'+id+'/hqdefault.jpg';}
-function ytThumbMq(id){return 'https://img.youtube.com/vi/'+id+'/mqdefault.jpg';}
-// 유튜브 검색 URL 생성 - 항상 재생 가능한 영상으로 연결
-function ytSearchUrl(keyword){return 'https://www.youtube.com/results?search_query='+encodeURIComponent(keyword);}
+// ===== 썸네일 HTML 생성 =====
+const catColors = {kpop:'#FBEAF0', kdrama:'#F0EBF8', pop:'#E6F1FB'};
+const catIcons  = {kpop:'🎤', kdrama:'🎬', pop:'🌟'};
 
-// 에러시 자동 fallback - 카테고리별 이모지 플레이스홀더
-function onThumbError(el, cat, source) {
-  var cats = {kpop:'#FBEAF0', kdrama:'#F0EBF8', pop:'#E6F1FB'};
-  var icons = {kpop:'🎤', kdrama:'🎬', pop:'🌟'};
-  var bg = cats[cat] || '#F8F8F6';
-  var icon = icons[cat] || '🎵';
-  var box = el.parentElement;
-  box.style.background = bg;
-  box.style.display = 'flex';
-  box.style.flexDirection = 'column';
-  box.style.alignItems = 'center';
-  box.style.justifyContent = 'center';
-  box.style.gap = '8px';
-  el.style.display = 'none';
-  box.insertAdjacentHTML('beforeend',
-    '<span style="font-size:44px">'+icon+'</span>' +
-    '<span style="font-size:12px;font-weight:700;color:#333">'+source+'</span>' +
-    '<span style="font-size:11px;color:#6B6B68">이미지 준비 중</span>'
-  );
-}
-
-function thumbHtml(n){
-  var fallback = 'onThumbError(this,\''+n.cat+'\',\''+n.source+'\')';
-  return `<a href="${ytSearchUrl(n.searchKeyword || n.title)}" target="_blank" rel="noopener">
-      <div class="sb-thumb">
-        <img src="${ytThumb(n.ytId)}" alt="관련 유튜브 영상 썸네일" onerror="${fallback}">
+function thumbHtml(n) {
+  const yt = ytCache[n.searchKeyword];
+  if (yt) {
+    return `
+      <a href="https://www.youtube.com/watch?v=${yt.videoId}" target="_blank" rel="noopener" class="sb-thumb">
+        <img src="${yt.thumb}" alt="${yt.title}">
         <div class="sb-thumb-overlay"><div class="sb-play-btn"><i class="ti ti-player-play" style="font-size:22px;color:#333"></i></div></div>
         <div class="sb-thumb-top-left"><span class="sb-thumb-src-badge"><i class="ti ti-brand-youtube" style="font-size:11px"></i> YouTube 공식</span></div>
         <div class="sb-thumb-top-right"><span class="sb-thumb-time">${fDate(n.publishedAt)} ${fTime(n.publishedAt)}</span></div>
-      </div>
-    </a>
-    <div class="sb-img-note"><span class="sb-img-badge sb-yt-badge"><i class="ti ti-brand-youtube" style="font-size:10px"></i> YouTube</span>${n.imgNote}</div>`;
+      </a>
+      <div class="sb-img-note"><span class="sb-img-badge sb-yt-badge"><i class="ti ti-brand-youtube" style="font-size:10px"></i> YouTube</span>YouTube Data API v3 공식 검색 결과 · ${yt.channel}</div>`;
+  }
+  // 로딩 중 or API 키 없음
+  const bg = catColors[n.cat] || '#F8F8F6';
+  const icon = catIcons[n.cat] || '🎵';
+  const isLoading = YT_API_KEY && YT_API_KEY !== 'YOUR_API_KEY_HERE';
+  return `
+    <div class="sb-thumb-${isLoading ? 'loading' : 'fallback'}" style="background:${bg}">
+      ${isLoading
+        ? '<div class="sb-spinner"></div><span style="font-size:11px;color:#6B6B68;margin-top:6px">YouTube 검색 중...</span>'
+        : `<span style="font-size:44px">${icon}</span><span style="font-size:12px;color:#6B6B68">${n.source}</span>`
+      }
+    </div>
+    <div class="sb-img-note"><span class="sb-img-badge sb-yt-badge"><i class="ti ti-brand-youtube" style="font-size:10px"></i> YouTube</span>${isLoading ? '검색 중...' : 'API 키를 설정하면 자동으로 영상이 연결됩니다'}</div>`;
 }
 
+function shortCardHtml(sk) {
+  const yt = ytCache[sk];
+  if (yt) {
+    return `
+      <a href="https://www.youtube.com/watch?v=${yt.videoId}" target="_blank" rel="noopener" class="sb-short-card">
+        <div class="sb-short-thumb"><img src="${yt.thumb}" alt="${yt.title}"></div>
+        <div class="sb-short-play"><i class="ti ti-player-play" style="font-size:13px;color:#fff"></i></div>
+        <div class="sb-short-info">
+          <div class="sb-short-title">${yt.title.length > 30 ? yt.title.substring(0,30)+'...' : yt.title}</div>
+          <div class="sb-short-views"><i class="ti ti-brand-youtube" style="font-size:10px"></i> ${yt.channel}</div>
+        </div>
+      </a>`;
+  }
+  return `
+    <div class="sb-short-card" style="opacity:0.5">
+      <div class="sb-short-thumb" style="background:#F0F0F0;display:flex;align-items:center;justify-content:center;font-size:20px">🎵</div>
+      <div class="sb-short-info">
+        <div class="sb-short-title">${sk.replace(' official MV','').replace(' MV','')}</div>
+        <div class="sb-short-views">로드 중...</div>
+      </div>
+    </div>`;
+}
+
+// ===== 컨트롤 =====
 function setMode(m){
   mode=m;
   ['all','k','w'].forEach(x=>document.getElementById('btn-'+x).classList.toggle('active',x===m));
@@ -456,22 +484,23 @@ function setMode(m){
 function setKLang(l,el){
   kLang=l;
   document.getElementById('klang-pills').querySelectorAll('.sb-lang-pill').forEach(e=>e.classList.remove('active-k'));
-  el.classList.add('active-k');render();
+  el.classList.add('active-k'); render();
 }
 function setWLang(l,el){
   wLang=l;
   document.getElementById('wlang-pills').querySelectorAll('.sb-lang-pill').forEach(e=>e.classList.remove('active-w'));
-  el.classList.add('active-w');render();
+  el.classList.add('active-w'); render();
 }
 function setFilter(f,el){
   filter=f;
   document.querySelectorAll('.sb-ftag').forEach(e=>e.classList.remove('on'));
-  el.classList.add('on');render();
+  el.classList.add('on'); render();
 }
-function doSearch(v){kw=v.toLowerCase();render();}
-function toggleLike(id){likes[id]=!likes[id];render();}
-function setTTab(id,l){openT[id]=l;render();}
+function doSearch(v){kw=v.toLowerCase(); render();}
+function toggleLike(id){likes[id]=!likes[id]; render();}
+function setTTab(id,l){openT[id]=l; render();}
 
+// ===== 렌더링 =====
 function render(){
   let list=news.filter(n=>{
     if(mode==='k'&&n.side!=='k')return false;
@@ -484,37 +513,29 @@ function render(){
     if(kw&&!n.title.toLowerCase().includes(kw)&&!n.stars.join().toLowerCase().includes(kw))return false;
     return true;
   });
+
   const g=document.getElementById('sb-news-grid');
   if(!list.length){
     g.innerHTML='<div style="text-align:center;padding:3rem;color:#6B6B68;font-size:14px"><i class="ti ti-search-off" style="font-size:32px;display:block;margin-bottom:10px"></i>검색 결과가 없습니다</div>';
     return;
   }
-  g.innerHTML=list.map(n=>{
-    const isK=n.side==='k';
-    const sc=isK?'k-side':'w-side';
-    const langs=isK?KL:WL;
-    const al=openT[n.id]||(isK?kLang:wLang);
-    const ac=isK?'active-k':'active-w';
-    const bc=isK?'sb-trans-box-k':'sb-trans-box-w';
-    const bk=isK?'sb-badge-k':'sb-badge-w';
-    const lbc=isK?'sb-trans-badge-k':'sb-trans-badge-w';
-    const bt=isK?`K-Star → ${LF[al]} ${LN[al]}`:`Global → ${LF[al]} ${LN[al]}`;
-    const hb=n.hot?'<span class="sb-badge sb-badge-hot">HOT</span>':'';
-    const sb=n.hasShorts?'<span class="sb-badge sb-badge-shorts"><i class="ti ti-player-play" style="font-size:10px"></i> 숏츠</span>':'';
-    const tabs=langs.map(l=>`<button class="sb-trans-tab ${al===l?ac:''}" onclick="setTTab(${n.id},'${l}')">${LF[l]} ${LN[l]}</button>`).join('');
-    const shorts=n.shorts.length?`<div class="sb-shorts">${n.shorts.map(s=>`
-      <a href="${ytSearchUrl(s.title)}" target="_blank" rel="noopener" style="text-decoration:none">
-      <div class="sb-short-card">
-        <div class="sb-short-thumb">
-          <img src="${ytThumbMq(s.ytId)}" alt="${s.title}" onerror="this.style.display='none'">
-        </div>
-        <div class="sb-short-play"><i class="ti ti-player-play" style="font-size:13px;color:#fff"></i></div>
-        <div class="sb-short-info">
-          <div class="sb-short-title">${s.title}</div>
-          <div class="sb-short-views"><i class="ti ti-eye" style="font-size:10px"></i> ${s.views}</div>
-        </div>
-      </div>
-      </a>`).join('')}</div>`:'';
+
+  g.innerHTML = list.map(n => {
+    const isK = n.side==='k';
+    const sc = isK ? 'k-side' : 'w-side';
+    const langs = isK ? KL : WL;
+    const al = openT[n.id] || (isK ? kLang : wLang);
+    const ac = isK ? 'active-k' : 'active-w';
+    const bc = isK ? 'sb-trans-box-k' : 'sb-trans-box-w';
+    const bk = isK ? 'sb-badge-k' : 'sb-badge-w';
+    const lbc = isK ? 'sb-trans-badge-k' : 'sb-trans-badge-w';
+    const bt = isK ? `K-Star → ${LF[al]} ${LN[al]}` : `Global → ${LF[al]} ${LN[al]}`;
+    const hb = n.hot ? '<span class="sb-badge sb-badge-hot">HOT</span>' : '';
+    const sb = n.hasShorts ? '<span class="sb-badge sb-badge-shorts"><i class="ti ti-player-play" style="font-size:10px"></i> 숏츠</span>' : '';
+    const tabs = langs.map(l=>`<button class="sb-trans-tab ${al===l?ac:''}" onclick="setTTab(${n.id},'${l}')">${LF[l]} ${LN[l]}</button>`).join('');
+    const shorts = n.hasShorts && n.shortsKeywords && n.shortsKeywords.length
+      ? `<div class="sb-shorts">${n.shortsKeywords.map(sk=>shortCardHtml(sk)).join('')}</div>` : '';
+
     return `<div class="sb-card ${sc}">
       ${thumbHtml(n)}
       <div class="sb-card-inner">
@@ -547,8 +568,11 @@ function render(){
     </div>`;
   }).join('');
 }
+
+// ===== 시작 =====
 render();
-setInterval(render,60000);
+preloadThumbnails();
+setInterval(render, 60000);
 </script>
 </body>
 </html>
