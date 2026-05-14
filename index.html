@@ -332,8 +332,8 @@ const news=[
     id:4,side:'w',cat:'pop',hot:false,hasShorts:false,
     source:'Rolling Stone',
     publishedAt:new Date(Date.now()-142*60*1000),
-    imgType:'sns',snsType:'X',snsHandle:'@billieeilish',
-    imgNote:'공식 X(트위터) 계정 공식 포스트 임베드',
+    imgType:'youtube',ytId:'DyDfgMOUjCI',
+    imgNote:'유튜브 공식 MV 썸네일 (YouTube Data API 제공)',
     title:"Billie Eilish announces world tour — Seoul stop confirmed for September 2026",
     body:"Billie Eilish has officially announced her highly-anticipated world tour, with an Asia leg that includes a confirmed stop in Seoul, South Korea. The Grammy-winning artist will perform at the KSPO Dome in September 2026, marking her first solo concert in Korea in four years. Tickets are expected to sell out within minutes given the massive demand from Korean fans. The tour will also cover major cities across North America, Europe, and Australia before arriving in Asia.",
     trans:{
@@ -412,28 +412,38 @@ setInterval(tick,1000);tick();
 function ytThumb(id){return 'https://img.youtube.com/vi/'+id+'/hqdefault.jpg';}
 function ytThumbMq(id){return 'https://img.youtube.com/vi/'+id+'/mqdefault.jpg';}
 
+// 에러시 자동 fallback - 카테고리별 이모지 플레이스홀더
+function onThumbError(el, cat, source) {
+  var cats = {kpop:'#FBEAF0', kdrama:'#F0EBF8', pop:'#E6F1FB'};
+  var icons = {kpop:'🎤', kdrama:'🎬', pop:'🌟'};
+  var bg = cats[cat] || '#F8F8F6';
+  var icon = icons[cat] || '🎵';
+  var box = el.parentElement;
+  box.style.background = bg;
+  box.style.display = 'flex';
+  box.style.flexDirection = 'column';
+  box.style.alignItems = 'center';
+  box.style.justifyContent = 'center';
+  box.style.gap = '8px';
+  el.style.display = 'none';
+  box.insertAdjacentHTML('beforeend',
+    '<span style="font-size:44px">'+icon+'</span>' +
+    '<span style="font-size:12px;font-weight:700;color:#333">'+source+'</span>' +
+    '<span style="font-size:11px;color:#6B6B68">이미지 준비 중</span>'
+  );
+}
+
 function thumbHtml(n){
-  if(n.imgType==='youtube'){
-    return `<a href="https://www.youtube.com/watch?v=${n.ytId}" target="_blank" rel="noopener">
+  var fallback = 'onThumbError(this,\''+n.cat+'\',\''+n.source+'\')';
+  return `<a href="https://www.youtube.com/watch?v=${n.ytId}" target="_blank" rel="noopener">
       <div class="sb-thumb">
-        <img src="${ytThumb(n.ytId)}" alt="관련 유튜브 영상 썸네일">
+        <img src="${ytThumb(n.ytId)}" alt="관련 유튜브 영상 썸네일" onerror="${fallback}">
         <div class="sb-thumb-overlay"><div class="sb-play-btn"><i class="ti ti-player-play" style="font-size:22px;color:#333"></i></div></div>
         <div class="sb-thumb-top-left"><span class="sb-thumb-src-badge"><i class="ti ti-brand-youtube" style="font-size:11px"></i> YouTube 공식</span></div>
         <div class="sb-thumb-top-right"><span class="sb-thumb-time">${fDate(n.publishedAt)} ${fTime(n.publishedAt)}</span></div>
       </div>
     </a>
     <div class="sb-img-note"><span class="sb-img-badge sb-yt-badge"><i class="ti ti-brand-youtube" style="font-size:10px"></i> YouTube</span>${n.imgNote}</div>`;
-  }
-  const icon=n.snsType==='Instagram'?'ti-brand-instagram':'ti-brand-x';
-  const bg=n.snsType==='Instagram'?'#FBEAF0':'#E6F1FB';
-  const ic=n.snsType==='Instagram'?'#993556':'#185FA5';
-  return `<div class="sb-thumb sb-thumb-placeholder" style="background:${bg}">
-    <i class="ti ${icon}" style="font-size:40px;color:${ic}"></i>
-    <span style="font-size:15px;font-weight:700;color:${ic}">${n.snsHandle}</span>
-    <span style="font-size:11px;color:#6B6B68">공식 ${n.snsType} 포스트</span>
-    <span style="font-size:11px;background:${ic};color:#fff;padding:4px 12px;border-radius:20px;font-weight:600;margin-top:4px">${fDate(n.publishedAt)} ${fTime(n.publishedAt)}</span>
-  </div>
-  <div class="sb-img-note"><span class="sb-img-badge sb-sns-badge"><i class="ti ${icon}" style="font-size:10px"></i> ${n.snsType}</span>${n.imgNote}</div>`;
 }
 
 function setMode(m){
@@ -493,7 +503,7 @@ function render(){
     const shorts=n.shorts.length?`<div class="sb-shorts">${n.shorts.map(s=>`
       <div class="sb-short-card">
         <div class="sb-short-thumb">
-          <img src="${ytThumbMq(s.ytId)}" alt="${s.title}">
+          <img src="${ytThumbMq(s.ytId)}" alt="${s.title}" onerror="this.style.display='none'">
         </div>
         <div class="sb-short-play"><i class="ti ti-player-play" style="font-size:13px;color:#fff"></i></div>
         <div class="sb-short-info">
