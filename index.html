@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="K-Star & Global Star 실시간 뉴스를 영어·스페인어·포르투갈어·한국어로 즉시 번역 제공 — StarBridge">
+<meta name="keywords" content="K-Pop 뉴스, 케이팝 영어 번역, K-Drama news, BTS news English, aespa news, 한류 뉴스, kpop noticias español">
+<title>StarBridge — K-Star & Global 실시간 뉴스 번역</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --pink: #D4537E;
+  --pink-light: #FBEAF0;
+  --pink-dark: #993556;
+  --blue: #185FA5;
+  --blue-light: #E6F1FB;
+  --blue-dark: #0C447C;
+  --purple: #534AB7;
+  --green: #3B6D11;
+  --amber-light: #FAEEDA;
+  --amber-dark: #854F0B;
+  --red-light: #FCEBEB;
+  --red-dark: #A32D2D;
+  --gray-bg: #F8F8F6;
+  --gray-border: #E5E4DE;
+  --gray-text: #6B6B68;
+  --text: #1A1A18;
+  --white: #FFFFFF;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-pill: 20px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--gray-bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+.sb-wrap { max-width: 760px; margin: 0 auto; padding: 20px 16px 60px; }
+
+/* 헤더 */
+.sb-header {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  border: 1px solid var(--gray-border);
+  box-shadow: var(--shadow);
+}
+.sb-header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+.sb-logo { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 8px; }
+.sb-logo-dot { width: 9px; height: 9px; border-radius: 50%; background: #E24B4A; animation: blink 1.4s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.sb-logo-sub { font-size: 11px; color: var(--gray-text); font-family: 'Noto Sans KR', sans-serif; font-weight: 400; margin-top: 2px; }
+.sb-clock-box { display: flex; align-items: center; gap: 8px; background: var(--gray-bg); border: 1px solid var(--gray-border); border-radius: var(--radius-sm); padding: 7px 12px; }
+.sb-clock-date { font-size: 11px; color: var(--gray-text); }
+.sb-clock-time { font-size: 14px; font-weight: 700; color: var(--text); font-family: monospace; }
+.sb-clock-live { font-size: 10px; color: var(--green); font-weight: 700; }
+.sb-mode-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.sb-mode-btn { padding: 7px 18px; border-radius: var(--radius-pill); border: 1.5px solid var(--gray-border); background: var(--white); font-size: 12px; cursor: pointer; color: var(--gray-text); font-family: 'Noto Sans KR', sans-serif; font-weight: 500; transition: all 0.15s; }
+.sb-mode-btn:hover { border-color: var(--blue); color: var(--blue); }
+.sb-mode-btn.active { background: var(--blue); color: var(--white); border-color: var(--blue); }
+
+/* 언어 설정 */
+.sb-lang-section { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+.sb-lang-box { background: var(--white); border: 1px solid var(--gray-border); border-radius: var(--radius); padding: 12px 14px; box-shadow: var(--shadow); }
+.sb-lang-title { font-size: 11px; font-weight: 700; margin-bottom: 9px; display: flex; align-items: center; gap: 5px; }
+.sb-lang-title.k { color: var(--pink-dark); }
+.sb-lang-title.w { color: var(--blue-dark); }
+.sb-lang-pills { display: flex; gap: 5px; flex-wrap: wrap; }
+.sb-lang-pill { padding: 4px 10px; border-radius: var(--radius-pill); border: 1px solid var(--gray-border); background: var(--gray-bg); font-size: 11px; cursor: pointer; color: var(--gray-text); transition: all 0.12s; font-family: 'Noto Sans KR', sans-serif; }
+.sb-lang-pill.active-k { background: var(--pink); color: var(--white); border-color: var(--pink); }
+.sb-lang-pill.active-w { background: var(--blue); color: var(--white); border-color: var(--blue); }
+.sb-lang-note { font-size: 10px; color: var(--gray-text); margin-top: 8px; display: flex; align-items: center; gap: 4px; }
+
+/* 통계 */
+.sb-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-bottom: 14px; }
+.sb-stat { background: var(--white); border: 1px solid var(--gray-border); border-radius: var(--radius-sm); padding: 10px 8px; text-align: center; box-shadow: var(--shadow); }
+.sb-stat-num { font-size: 18px; font-weight: 700; color: var(--text); }
+.sb-stat-lbl { font-size: 10px; color: var(--gray-text); margin-top: 2px; }
+
+/* 트렌딩 */
+.sb-trending { background: var(--white); border: 1px solid var(--gray-border); border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; box-shadow: var(--shadow); }
+.sb-trend-lbl { font-size: 11px; font-weight: 700; color: var(--gray-text); white-space: nowrap; }
+.sb-trend-tag { font-size: 11px; padding: 3px 10px; border-radius: var(--radius-pill); background: var(--gray-bg); border: 1px solid var(--gray-border); color: var(--text); cursor: pointer; transition: all 0.12s; }
+.sb-trend-tag:hover { border-color: var(--blue); color: var(--blue); }
+
+/* 필터 */
+.sb-filter-row { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
+.sb-ftag { padding: 6px 14px; border-radius: var(--radius-pill); border: 1px solid var(--gray-border); background: var(--white); font-size: 12px; cursor: pointer; color: var(--gray-text); transition: all 0.12s; font-family: 'Noto Sans KR', sans-serif; }
+.sb-ftag:hover { border-color: var(--blue); color: var(--blue); }
+.sb-ftag.on { background: var(--text); color: var(--white); border-color: var(--text); }
+.sb-search-wrap { position: relative; margin-left: auto; }
+.sb-search-wrap input { padding: 7px 12px 7px 30px; font-size: 12px; border: 1px solid var(--gray-border); border-radius: var(--radius-pill); background: var(--white); color: var(--text); outline: none; width: 160px; font-family: 'Noto Sans KR', sans-serif; }
+.sb-search-wrap input:focus { border-color: var(--blue); }
+.sb-s-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--gray-text); pointer-events: none; }
+
+/* 뉴스 그리드 */
+.sb-news-grid { display: grid; gap: 14px; }
+
+/* 뉴스 카드 */
+.sb-card { background: var(--white); border-radius: var(--radius); border: 1px solid var(--gray-border); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.15s, box-shadow 0.15s; }
+.sb-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.11); }
+.sb-card.k-side { border-left: 4px solid var(--pink); border-radius: 0 var(--radius) var(--radius) 0; }
+.sb-card.w-side { border-left: 4px solid var(--blue); border-radius: 0 var(--radius) var(--radius) 0; }
+
+/* 썸네일 */
+.sb-thumb { position: relative; width: 100%; height: 190px; overflow: hidden; background: var(--gray-bg); cursor: pointer; }
+.sb-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+.sb-card:hover .sb-thumb img { transform: scale(1.03); }
+.sb-thumb-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; }
+.sb-thumb:hover .sb-thumb-overlay { opacity: 1; }
+.sb-play-btn { width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.92); display: flex; align-items: center; justify-content: center; }
+.sb-thumb-top-left { position: absolute; top: 10px; left: 10px; display: flex; gap: 5px; }
+.sb-thumb-top-right { position: absolute; top: 10px; right: 10px; }
+.sb-thumb-src-badge { font-size: 10px; padding: 3px 8px; border-radius: var(--radius-pill); font-weight: 600; background: rgba(0,0,0,0.65); color: #fff; display: flex; align-items: center; gap: 3px; }
+.sb-thumb-time { font-size: 10px; padding: 3px 8px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.65); color: #fff; font-family: monospace; font-weight: 600; }
+.sb-thumb-placeholder { display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; width: 100%; height: 100%; }
+.sb-img-note { font-size: 10px; color: var(--gray-text); padding: 5px 14px; background: var(--gray-bg); display: flex; align-items: center; gap: 5px; border-bottom: 1px solid var(--gray-border); }
+.sb-img-badge { font-size: 10px; padding: 1px 7px; border-radius: var(--radius-pill); font-weight: 600; }
+.sb-yt-badge { background: var(--red-light); color: var(--red-dark); }
+.sb-sns-badge { background: var(--blue-light); color: var(--blue-dark); }
+
+/* 카드 내부 */
+.sb-card-inner { padding: 14px 16px; }
+.sb-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.sb-card-meta { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.sb-badge { font-size: 10px; padding: 2px 9px; border-radius: var(--radius-pill); font-weight: 600; }
+.sb-badge-k { background: var(--pink-light); color: var(--pink-dark); }
+.sb-badge-w { background: var(--blue-light); color: var(--blue-dark); }
+.sb-badge-hot { background: var(--amber-light); color: var(--amber-dark); }
+.sb-badge-shorts { background: var(--red-light); color: var(--red-dark); }
+.sb-ts-block { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; flex-shrink: 0; }
+.sb-ts-source { font-size: 10px; color: var(--gray-text); }
+.sb-ts-date { font-size: 10px; color: var(--gray-text); font-family: monospace; }
+.sb-ts-time { font-size: 13px; font-weight: 700; color: var(--text); font-family: monospace; }
+.sb-ts-ago { font-size: 10px; color: var(--green); font-weight: 600; }
+.sb-card-title { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.45; margin-bottom: 6px; cursor: pointer; }
+.sb-card-title:hover { color: var(--blue); }
+.sb-card-body { font-size: 12px; color: var(--gray-text); line-height: 1.7; margin-bottom: 10px; }
+
+/* 번역 탭 */
+.sb-trans-tabs { display: flex; gap: 5px; margin-bottom: 7px; flex-wrap: wrap; }
+.sb-trans-tab { padding: 4px 11px; border-radius: var(--radius-pill); font-size: 11px; cursor: pointer; border: 1px solid var(--gray-border); background: var(--white); color: var(--gray-text); transition: all 0.12s; font-family: 'Noto Sans KR', sans-serif; }
+.sb-trans-tab.active-k { background: var(--pink); color: var(--white); border-color: var(--pink); }
+.sb-trans-tab.active-w { background: var(--blue); color: var(--white); border-color: var(--blue); }
+
+/* 번역 박스 */
+.sb-trans-box { border-radius: 0 var(--radius-sm) var(--radius-sm) var(--radius-sm); padding: 10px 12px; margin-bottom: 10px; }
+.sb-trans-box-k { background: var(--pink-light); border-left: 3px solid var(--pink); }
+.sb-trans-box-w { background: var(--blue-light); border-left: 3px solid var(--blue); }
+.sb-trans-badge { font-size: 10px; margin-bottom: 5px; display: flex; align-items: center; gap: 4px; font-weight: 600; }
+.sb-trans-badge-k { color: var(--pink-dark); }
+.sb-trans-badge-w { color: var(--blue-dark); }
+.sb-trans-text { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+/* 카드 푸터 */
+.sb-card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 8px; border-top: 1px solid var(--gray-border); }
+.sb-action-row { display: flex; gap: 6px; }
+.sb-act-btn { display: flex; align-items: center; gap: 3px; font-size: 11px; color: var(--gray-text); cursor: pointer; padding: 4px 10px; border-radius: var(--radius-pill); border: 1px solid var(--gray-border); background: transparent; font-family: 'Noto Sans KR', sans-serif; transition: all 0.12s; }
+.sb-act-btn:hover { background: var(--gray-bg); }
+.sb-act-btn.liked { color: var(--pink); border-color: var(--pink); }
+.sb-hashtags { font-size: 10px; color: var(--gray-text); }
+
+/* 숏츠 */
+.sb-shorts { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; padding: 10px 14px; border-top: 1px solid var(--gray-border); background: var(--gray-bg); }
+.sb-short-card { border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--gray-border); background: var(--white); cursor: pointer; position: relative; transition: transform 0.15s; }
+.sb-short-card:hover { transform: translateY(-2px); }
+.sb-short-thumb { height: 65px; overflow: hidden; background: var(--gray-bg); }
+.sb-short-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.sb-short-thumb.noimg { display: flex; align-items: center; justify-content: center; }
+.sb-short-play { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 28px; height: 28px; border-radius: 50%; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; }
+.sb-short-info { padding: 6px 7px; }
+.sb-short-title { font-size: 10px; color: var(--text); font-weight: 600; line-height: 1.3; margin-bottom: 2px; }
+.sb-short-views { font-size: 10px; color: var(--gray-text); }
+
+/* 푸터 */
+.sb-footer { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--gray-border); }
+.sb-footer-text { font-size: 11px; color: var(--gray-text); line-height: 1.8; }
+.sb-footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text); font-size: 14px; margin-bottom: 5px; }
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .sb-lang-section { grid-template-columns: 1fr; }
+  .sb-stats { grid-template-columns: repeat(2,1fr); }
+  .sb-shorts { grid-template-columns: repeat(2,1fr); }
+  .sb-logo { font-size: 18px; }
+  .sb-thumb { height: 160px; }
+  .sb-search-wrap input { width: 130px; }
+}
+</style>
+</head>
+<body>
+<div class="sb-wrap">
+
+<!-- 헤더 -->
+<div class="sb-header">
+  <div class="sb-header-top">
+    <div>
+      <div class="sb-logo">
+        <span class="sb-logo-dot"></span>StarBridge
+      </div>
+      <div class="sb-logo-sub">K-Star ↔ Global · 실시간 AI 번역 뉴스 + 숏츠</div>
+    </div>
+    <div class="sb-clock-box">
+      <i class="ti ti-clock" style="font-size:14px;color:#6B6B68"></i>
+      <span class="sb-clock-date" id="sb-clock-date"></span>
+      <span class="sb-clock-time" id="sb-clock-time"></span>
+      <span class="sb-clock-live">● LIVE</span>
+    </div>
+  </div>
+  <div class="sb-mode-row">
+    <button class="sb-mode-btn active" onclick="setMode('all')" id="btn-all">전체</button>
+    <button class="sb-mode-btn" onclick="setMode('k')" id="btn-k">K-Star → 해외</button>
+    <button class="sb-mode-btn" onclick="setMode('w')" id="btn-w">Global → 한국</button>
+  </div>
+</div>
+
+<!-- 언어 설정 -->
+<div class="sb-lang-section">
+  <div class="sb-lang-box">
+    <div class="sb-lang-title k"><i class="ti ti-building-arch" style="font-size:12px"></i> K-Star 번역 언어</div>
+    <div class="sb-lang-pills" id="klang-pills">
+      <span class="sb-lang-pill active-k" onclick="setKLang('en',this)">🇺🇸 English</span>
+      <span class="sb-lang-pill" onclick="setKLang('es',this)">🇲🇽 Español</span>
+      <span class="sb-lang-pill" onclick="setKLang('pt',this)">🇧🇷 Português</span>
+      <span class="sb-lang-pill" onclick="setKLang('kr',this)">🇰🇷 한국어</span>
+    </div>
+    <div class="sb-lang-note"><i class="ti ti-info-circle" style="font-size:11px"></i> 한국 원문 + 4개국어 번역 제공</div>
+  </div>
+  <div class="sb-lang-box">
+    <div class="sb-lang-title w"><i class="ti ti-world" style="font-size:12px"></i> Global 번역 언어</div>
+    <div class="sb-lang-pills" id="wlang-pills">
+      <span class="sb-lang-pill active-w" onclick="setWLang('en',this)">🇺🇸 English</span>
+      <span class="sb-lang-pill" onclick="setWLang('kr',this)">🇰🇷 한국어</span>
+    </div>
+    <div class="sb-lang-note"><i class="ti ti-info-circle" style="font-size:11px"></i> 영어 원문 + 한국어 번역 제공</div>
+  </div>
+</div>
+
+<!-- 통계 -->
+<div class="sb-stats">
+  <div class="sb-stat"><div class="sb-stat-num">42</div><div class="sb-stat-lbl">오늘 전체 뉴스</div></div>
+  <div class="sb-stat"><div class="sb-stat-num">4</div><div class="sb-stat-lbl">K-Star 언어</div></div>
+  <div class="sb-stat"><div class="sb-stat-num">2</div><div class="sb-stat-lbl">Global 언어</div></div>
+  <div class="sb-stat"><div class="sb-stat-num">18</div><div class="sb-stat-lbl">숏츠 생성</div></div>
+</div>
+
+<!-- 트렌딩 -->
+<div class="sb-trending">
+  <span class="sb-trend-lbl"><i class="ti ti-trending-up" style="font-size:12px"></i> 트렌딩</span>
+  <span class="sb-trend-tag">#BTS</span>
+  <span class="sb-trend-tag">#aespa</span>
+  <span class="sb-trend-tag">#BLACKPINK</span>
+  <span class="sb-trend-tag">#TaylorSwift</span>
+  <span class="sb-trend-tag">#Beyoncé</span>
+  <span class="sb-trend-tag">#BillieEilish</span>
+  <span class="sb-trend-tag">#NewJeans</span>
+</div>
+
+<!-- 필터 -->
+<div class="sb-filter-row">
+  <button class="sb-ftag on" onclick="setFilter('all',this)">전체</button>
+  <button class="sb-ftag" onclick="setFilter('kpop',this)">K-Pop</button>
+  <button class="sb-ftag" onclick="setFilter('kdrama',this)">K-Drama</button>
+  <button class="sb-ftag" onclick="setFilter('pop',this)">팝스타</button>
+  <button class="sb-ftag" onclick="setFilter('hot',this)">HOT</button>
+  <button class="sb-ftag" onclick="setFilter('shorts',this)">숏츠</button>
+  <div class="sb-search-wrap">
+    <i class="ti ti-search sb-s-icon"></i>
+    <input type="text" placeholder="스타 검색..." oninput="doSearch(this.value)">
+  </div>
+</div>
+
+<!-- 뉴스 그리드 -->
+<div class="sb-news-grid" id="sb-news-grid"></div>
+
+<!-- 푸터 -->
+<div class="sb-footer">
+  <div class="sb-footer-logo">StarBridge</div>
+  <div class="sb-footer-text">
+    K-Star & Global 연예 뉴스를 실시간으로 4개 언어로 번역 제공<br>
+    유튜브 썸네일: YouTube Data API 공식 제공 · SNS: 공식 계정 임베드<br>
+    © 2026 StarBridge · Powered by AI Translation
+  </div>
+</div>
+
+</div>
+
+<script>
+const news=[
+  {id:1,side:'k',cat:'kpop',hot:true,hasShorts:true,source:'Naver 연예',
+   publishedAt:new Date(Date.now()-3*60*1000),imgType:'youtube',ytId:'G4cqBUMdQQo',
+   imgNote:'유튜브 공식 MV 썸네일 (YouTube Data API 제공)',
+   title:'aespa, 컴백 D-3 티저 공개… 타이틀곡 "WDA" 예고',
+   body:'SM엔터테인먼트 걸그룹 aespa가 오는 17일 새 앨범 발매를 앞두고 타이틀곡 "WDA" 티저를 공개했다. 글로벌 팬들의 뜨거운 반응이 이어지고 있다.',
+   trans:{en:"aespa teases comeback in 3 days — SM Entertainment's girl group unveils title track 'WDA' ahead of their May 17th album release, drawing massive global attention.",
+          es:"aespa anuncia regreso en 3 días — el grupo femenino de SM Entertainment presenta el adelanto de 'WDA' antes del lanzamiento el 17 de mayo, generando enorme expectativa mundial.",
+          pt:"aespa anuncia comeback em 3 dias — o grupo da SM Entertainment divulga teaser da faixa título 'WDA' antes do lançamento em 17 de maio, gerando grande expectativa global.",
+          kr:"aespa가 컴백 D-3를 앞두고 타이틀곡 'WDA' 티저를 공개했다. 전 세계 팬들의 뜨거운 반응이 이어지고 있다."},
+   stars:['aespa'],
+   shorts:[{title:'aespa WDA 티저 하이라이트',views:'2.1M',ytId:'G4cqBUMdQQo'},
+           {title:'aespa 컴백 카운트다운',views:'890K',ytId:'rmkHDGRkTDs'},
+           {title:'WDA 가사 미리보기',views:'540K',ytId:'G4cqBUMdQQo'}]},
+  {id:2,side:'w',cat:'pop',hot:true,hasShorts:true,source:'Billboard',
+   publishedAt:new Date(Date.now()-23*60*1000),imgType:'youtube',ytId:'NG2zFznQkA8',
+   imgNote:'유튜브 공식 MV 썸네일 (YouTube Data API 제공)',
+   title:"Taylor Swift's 'Tortured Poets Department' breaks Spotify single-week record",
+   body:"Taylor Swift's latest album shattered Spotify's record for most streams in a single week, surpassing 1 billion plays within just 5 days of release.",
+   trans:{en:"Taylor Swift's album broke Spotify's single-week streaming record, surpassing 1 billion streams in just 5 days — the fastest any album has ever reached this milestone.",
+          kr:"테일러 스위프트의 새 앨범이 스포티파이 주간 스트리밍 최고 기록을 경신하며 발매 5일 만에 10억 스트림을 돌파했다. 역대 가장 빠른 기록이다."},
+   stars:['TaylorSwift'],
+   shorts:[{title:'테일러 스위프트 신기록 달성',views:'5.8M',ytId:'NG2zFznQkA8'},
+           {title:'앨범 하이라이트 모음',views:'3.2M',ytId:'NG2zFznQkA8'},
+           {title:'팬들의 반응 총정리',views:'1.7M',ytId:'NG2zFznQkA8'}]},
+  {id:3,side:'k',cat:'kdrama',hot:false,hasShorts:true,source:'Naver TV',
+   publishedAt:new Date(Date.now()-68*60*1000),imgType:'youtube',ytId:'rmkHDGRkTDs',
+   imgNote:'유튜브 공식 예고편 썸네일 (YouTube Data API 제공)',
+   title:'차은우·박은빈 "원더풀스" 넷플릭스 전세계 비영어권 1위',
+   body:'넷플릭스 오리지널 한국 드라마 "원더풀스"가 공개 첫 주 만에 전세계 비영어권 TV 부문 1위를 차지했다.',
+   trans:{en:"'The WONDERfools' starring Cha Eun-woo and Park Eun-bin topped Netflix's global non-English TV chart in its first week, becoming the latest Korean drama to achieve international success.",
+          es:"'The WONDERfools', protagonizada por Cha Eun-woo y Park Eun-bin, lideró el ranking global de series no inglesas de Netflix en su primera semana de emisión.",
+          pt:"'The WONDERfools', estrelado por Cha Eun-woo e Park Eun-bin, liderou o ranking global de séries não inglesas da Netflix em sua primeira semana.",
+          kr:"차은우·박은빈 주연 '원더풀스'가 넷플릭스 전세계 비영어권 1위를 기록하며 한류 열풍을 이어가고 있다."},
+   stars:['ChaEunwoo','ParkEunbin'],
+   shorts:[{title:'원더풀스 1화 명장면',views:'4.3M',ytId:'rmkHDGRkTDs'},
+           {title:'차은우 변신 비하인드',views:'2.1M',ytId:'rmkHDGRkTDs'},
+           {title:'넷플릭스 1위 반응',views:'980K',ytId:'rmkHDGRkTDs'}]},
+  {id:4,side:'w',cat:'pop',hot:false,hasShorts:false,source:'Rolling Stone',
+   publishedAt:new Date(Date.now()-142*60*1000),imgType:'sns',snsType:'X',snsHandle:'@billieeilish',
+   imgNote:'공식 X(트위터) 계정 공식 포스트 임베드',
+   title:"Billie Eilish announces world tour — Seoul stop confirmed for September 2026",
+   body:"Billie Eilish confirmed a world tour Asia leg with Seoul scheduled for September 2026 at the KSPO Dome, thrilling Korean fans.",
+   trans:{en:"Billie Eilish officially confirmed Seoul as part of her world tour Asia dates, with a performance at KSPO Dome in September 2026.",
+          kr:"빌리 아일리시가 월드 투어 아시아 일정을 공식 발표하며 서울 공연을 확정했다. 2026년 9월 KSPO돔에서 열리며 한국 팬들의 기대가 폭발하고 있다."},
+   stars:['BillieEilish'],shorts:[]},
+  {id:5,side:'k',cat:'kpop',hot:true,hasShorts:true,source:'Soompi',
+   publishedAt:new Date(Date.now()-195*60*1000),imgType:'youtube',ytId:'qSjFoRegvSo',
+   imgNote:'유튜브 공식 MV 썸네일 (YouTube Data API 제공)',
+   title:'BTS 정국, 깜짝 솔로 싱글 45개국 아이튠즈 1위 등극',
+   body:'BTS 멤버 정국이 깜짝 솔로 싱글을 발매, 수 시간 만에 45개국 아이튠즈 차트 정상에 올랐다.',
+   trans:{en:"BTS Jungkook's surprise solo single debuted at #1 on iTunes in 45 countries within hours of release, shattering his own previous solo record.",
+          es:"El sencillo sorpresa en solitario de Jungkook de BTS debutó en el #1 de iTunes en 45 países en tan solo unas pocas horas, superando su propio récord anterior.",
+          pt:"O single surpresa solo de Jungkook do BTS estreou no #1 do iTunes em 45 países em poucas horas, quebrando seu próprio recorde anterior.",
+          kr:"BTS 정국의 깜짝 솔로 싱글이 발매 수 시간 만에 45개국 아이튠즈 1위를 달성하며 자신의 솔로 기록을 경신했다."},
+   stars:['BTS','Jungkook'],
+   shorts:[{title:'정국 깜짝 솔로 반응 모음',views:'8.2M',ytId:'qSjFoRegvSo'},
+           {title:'45개국 1위 달성 순간',views:'3.5M',ytId:'qSjFoRegvSo'},
+           {title:'뮤직비디오 하이라이트',views:'6.1M',ytId:'qSjFoRegvSo'}]},
+  {id:6,side:'w',cat:'pop',hot:true,hasShorts:true,source:'People',
+   publishedAt:new Date(Date.now()-253*60*1000),imgType:'sns',snsType:'Instagram',snsHandle:'@beyonce',
+   imgNote:'공식 Instagram 계정 공식 포스트 임베드',
+   title:"Beyoncé's Renaissance Act III film wins 3 MTV Movie Awards",
+   body:"Beyoncé swept the MTV Movie & TV Awards with her Renaissance film, taking Best Musical Performance, Best Choreography, and Best Visual Album Film.",
+   trans:{en:"Beyoncé dominated the MTV Movie Awards with her Renaissance Act III film, claiming 3 major awards including Best Musical Performance, Best Choreography, and Best Visual Album Film.",
+          kr:"비욘세의 르네상스 3막 필름이 MTV 무비 어워드에서 베스트 뮤지컬 퍼포먼스, 베스트 안무, 베스트 비주얼 앨범 필름 등 3개 부문을 석권하며 압도적인 존재감을 드러냈다."},
+   stars:['Beyoncé'],
+   shorts:[{title:'비욘세 수상 순간',views:'7.1M',ytId:'NG2zFznQkA8'},
+           {title:'르네상스 필름 명장면',views:'4.4M',ytId:'NG2zFznQkA8'}]}
+];
+
+const LF={en:'🇺🇸',es:'🇲🇽',pt:'🇧🇷',kr:'🇰🇷'};
+const LN={en:'English',es:'Español',pt:'Português',kr:'한국어'};
+const KL=['en','es','pt','kr'],WL=['en','kr'];
+let mode='all',filter='all',kw='',kLang='en',wLang='en',openT={},likes={};
+
+function pad(n){return String(n).padStart(2,'0');}
+function fDate(d){return `${d.getFullYear()}.${pad(d.getMonth()+1)}.${pad(d.getDate())}`;}
+function fTime(d){return `${pad(d.getHours())}:${pad(d.getMinutes())}`;}
+function fAgo(d){
+  const m=Math.floor((Date.now()-d)/60000);
+  if(m<1)return '방금 전';
+  if(m<60)return m+'분 전';
+  const h=Math.floor(m/60);
+  if(h<24)return h+'시간 전';
+  return Math.floor(h/24)+'일 전';
+}
+function tick(){
+  const n=new Date();
+  const e1=document.getElementById('sb-clock-date');
+  const e2=document.getElementById('sb-clock-time');
+  if(e1)e1.textContent=fDate(n);
+  if(e2)e2.textContent=fTime(n)+':'+pad(n.getSeconds());
+}
+setInterval(tick,1000);tick();
+
+function ytThumb(id){return 'https://img.youtube.com/vi/'+id+'/hqdefault.jpg';}
+function ytThumbMq(id){return 'https://img.youtube.com/vi/'+id+'/mqdefault.jpg';}
+
+function thumbHtml(n){
+  if(n.imgType==='youtube'){
+    return `<a href="https://www.youtube.com/watch?v=${n.ytId}" target="_blank" rel="noopener">
+      <div class="sb-thumb">
+        <img src="${ytThumb(n.ytId)}" alt="관련 유튜브 영상 썸네일"
+          onerror="this.parentElement.innerHTML='<div class=sb-thumb-placeholder><i class=ti style=font-size:32px>▶</i><span style=font-size:11px;color:#6B6B68>영상 로드 중...</span></div>'">
+        <div class="sb-thumb-overlay"><div class="sb-play-btn"><i class="ti ti-player-play" style="font-size:20px;color:#333"></i></div></div>
+        <div class="sb-thumb-top-left"><span class="sb-thumb-src-badge"><i class="ti ti-brand-youtube" style="font-size:11px"></i> YouTube 공식</span></div>
+        <div class="sb-thumb-top-right"><span class="sb-thumb-time">${fDate(n.publishedAt)} ${fTime(n.publishedAt)}</span></div>
+      </div>
+    </a>
+    <div class="sb-img-note"><span class="sb-img-badge sb-yt-badge"><i class="ti ti-brand-youtube" style="font-size:10px"></i> YouTube</span>${n.imgNote}</div>`;
+  }
+  const icon=n.snsType==='Instagram'?'ti-brand-instagram':'ti-brand-x';
+  const bg=n.snsType==='Instagram'?'#FBEAF0':'#E6F1FB';
+  const ic=n.snsType==='Instagram'?'#993556':'#185FA5';
+  return `<div class="sb-thumb sb-thumb-placeholder" style="background:${bg}">
+    <i class="ti ${icon}" style="font-size:38px;color:${ic}"></i>
+    <span style="font-size:14px;font-weight:700;color:${ic}">${n.snsHandle}</span>
+    <span style="font-size:11px;color:#6B6B68">공식 ${n.snsType} 포스트</span>
+    <span style="font-size:10px;background:${ic};color:#fff;padding:3px 10px;border-radius:20px;font-weight:600">${fDate(n.publishedAt)} ${fTime(n.publishedAt)}</span>
+  </div>
+  <div class="sb-img-note"><span class="sb-img-badge sb-sns-badge"><i class="ti ${icon}" style="font-size:10px"></i> ${n.snsType}</span>${n.imgNote}</div>`;
+}
+
+function setMode(m){
+  mode=m;
+  ['all','k','w'].forEach(x=>document.getElementById('btn-'+x).classList.toggle('active',x===m));
+  render();
+}
+function setKLang(l,el){
+  kLang=l;
+  document.getElementById('klang-pills').querySelectorAll('.sb-lang-pill').forEach(e=>e.classList.remove('active-k'));
+  el.classList.add('active-k');
+  render();
+}
+function setWLang(l,el){
+  wLang=l;
+  document.getElementById('wlang-pills').querySelectorAll('.sb-lang-pill').forEach(e=>e.classList.remove('active-w'));
+  el.classList.add('active-w');
+  render();
+}
+function setFilter(f,el){
+  filter=f;
+  document.querySelectorAll('.sb-ftag').forEach(e=>e.classList.remove('on'));
+  el.classList.add('on');
+  render();
+}
+function doSearch(v){kw=v.toLowerCase();render();}
+function toggleLike(id){likes[id]=!likes[id];render();}
+function setTTab(id,l){openT[id]=l;render();}
+
+function render(){
+  let list=news.filter(n=>{
+    if(mode==='k'&&n.side!=='k')return false;
+    if(mode==='w'&&n.side!=='w')return false;
+    if(filter==='kpop'&&n.cat!=='kpop')return false;
+    if(filter==='kdrama'&&n.cat!=='kdrama')return false;
+    if(filter==='pop'&&n.cat!=='pop')return false;
+    if(filter==='hot'&&!n.hot)return false;
+    if(filter==='shorts'&&!n.hasShorts)return false;
+    if(kw&&!n.title.toLowerCase().includes(kw)&&!n.stars.join().toLowerCase().includes(kw))return false;
+    return true;
+  });
+  const g=document.getElementById('sb-news-grid');
+  if(!list.length){
+    g.innerHTML='<div style="text-align:center;padding:3rem;color:#6B6B68;font-size:14px"><i class="ti ti-search-off" style="font-size:32px;display:block;margin-bottom:10px"></i>검색 결과가 없습니다</div>';
+    return;
+  }
+  g.innerHTML=list.map(n=>{
+    const isK=n.side==='k';
+    const sc=isK?'k-side':'w-side';
+    const langs=isK?KL:WL;
+    const al=openT[n.id]||(isK?kLang:wLang);
+    const ac=isK?'active-k':'active-w';
+    const bc=isK?'sb-trans-box-k':'sb-trans-box-w';
+    const bk=isK?'sb-badge-k':'sb-badge-w';
+    const lbc=isK?'sb-trans-badge-k':'sb-trans-badge-w';
+    const bt=isK?`K-Star → ${LF[al]} ${LN[al]}`:`Global → ${LF[al]} ${LN[al]}`;
+    const hb=n.hot?'<span class="sb-badge sb-badge-hot">HOT</span>':'';
+    const sb=n.hasShorts?'<span class="sb-badge sb-badge-shorts"><i class="ti ti-player-play" style="font-size:10px"></i> 숏츠</span>':'';
+    const tabs=langs.map(l=>`<button class="sb-trans-tab ${al===l?ac:''}" onclick="setTTab(${n.id},'${l}')">${LF[l]} ${LN[l]}</button>`).join('');
+    const shorts=n.shorts.length?`<div class="sb-shorts">${n.shorts.map(s=>`
+      <div class="sb-short-card">
+        <div class="sb-short-thumb">
+          <img src="${ytThumbMq(s.ytId)}" alt="숏츠 썸네일"
+            onerror="this.parentElement.classList.add('noimg');this.remove()">
+        </div>
+        <div class="sb-short-play"><i class="ti ti-player-play" style="font-size:13px;color:#fff"></i></div>
+        <div class="sb-short-info">
+          <div class="sb-short-title">${s.title}</div>
+          <div class="sb-short-views"><i class="ti ti-eye" style="font-size:10px"></i> ${s.views}</div>
+        </div>
+      </div>`).join('')}</div>`:'';
+    return `<div class="sb-card ${sc}">
+      ${thumbHtml(n)}
+      <div class="sb-card-inner">
+        <div class="sb-card-top">
+          <div class="sb-card-meta"><span class="sb-badge ${bk}">${bt}</span>${hb}${sb}</div>
+          <div class="sb-ts-block">
+            <span class="sb-ts-source">${n.source}</span>
+            <span class="sb-ts-date">${fDate(n.publishedAt)}</span>
+            <span class="sb-ts-time">${fTime(n.publishedAt)}</span>
+            <span class="sb-ts-ago">${fAgo(n.publishedAt)}</span>
+          </div>
+        </div>
+        <div class="sb-card-title">${n.title}</div>
+        <div class="sb-card-body">${n.body}</div>
+        <div class="sb-trans-tabs">${tabs}</div>
+        <div class="sb-trans-box ${bc}">
+          <div class="sb-trans-badge ${lbc}"><i class="ti ti-language" style="font-size:11px"></i> AI 번역 · ${LF[al]} ${LN[al]}</div>
+          <div class="sb-trans-text">${n.trans[al]||''}</div>
+        </div>
+        <div class="sb-card-footer">
+          <div class="sb-action-row">
+            <button class="sb-act-btn ${likes[n.id]?'liked':''}" onclick="toggleLike(${n.id})"><i class="ti ti-heart" style="font-size:11px"></i> 좋아요</button>
+            <button class="sb-act-btn"><i class="ti ti-share" style="font-size:11px"></i> 공유</button>
+            <button class="sb-act-btn"><i class="ti ti-bookmark" style="font-size:11px"></i> 저장</button>
+          </div>
+          <span class="sb-hashtags">${n.stars.map(s=>'#'+s).join(' ')}</span>
+        </div>
+      </div>
+      ${shorts}
+    </div>`;
+  }).join('');
+}
+render();
+setInterval(render,60000);
+</script>
+</body>
+</html>
