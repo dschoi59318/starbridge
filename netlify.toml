@@ -2,10 +2,5 @@
   publish = "."
   functions = "netlify/functions"
 
-[[redirects]]
-  from = "/api/youtube"
-  to = "/.netlify/functions/youtube"
-  status = 200
-
 [functions]
   node_bundler = "esbuild"
