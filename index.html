@@ -22,8 +22,6 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(--text);}
 .wrap{max-width:780px;margin:0 auto;padding:20px 16px 60px;}
-
-/* 헤더 */
 .hdr{background:var(--white);border-radius:var(--radius);padding:18px 20px;margin-bottom:14px;border:1px solid var(--gray-border);box-shadow:var(--shadow);}
 .hdr-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px;}
 .logo{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;}
@@ -37,8 +35,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 .mode-row{display:flex;gap:6px;flex-wrap:wrap;}
 .mbtn{padding:7px 18px;border-radius:var(--radius-pill);border:1.5px solid var(--gray-border);background:var(--white);font-size:12px;cursor:pointer;color:var(--gray-text);font-family:'Noto Sans KR',sans-serif;font-weight:500;transition:all 0.15s;}
 .mbtn.on{background:var(--blue);color:var(--white);border-color:var(--blue);}
-
-/* 언어 */
 .lang-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
 .lang-box{background:var(--white);border:1px solid var(--gray-border);border-radius:var(--radius);padding:12px 14px;box-shadow:var(--shadow);}
 .lang-title{font-size:11px;font-weight:700;margin-bottom:9px;display:flex;align-items:center;gap:5px;}
@@ -49,19 +45,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 .lpill.ak{background:var(--pink);color:var(--white);border-color:var(--pink);}
 .lpill.aw{background:var(--blue);color:var(--white);border-color:var(--blue);}
 .lang-note{font-size:10px;color:var(--gray-text);margin-top:8px;}
-
-/* 통계 */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;}
 .stat{background:var(--white);border:1px solid var(--gray-border);border-radius:var(--radius-sm);padding:10px 8px;text-align:center;box-shadow:var(--shadow);}
 .stat-n{font-size:18px;font-weight:700;color:var(--text);}
 .stat-l{font-size:10px;color:var(--gray-text);margin-top:2px;}
-
-/* 트렌딩 */
 .trending{background:var(--white);border:1px solid var(--gray-border);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;box-shadow:var(--shadow);}
 .trl{font-size:11px;font-weight:700;color:var(--gray-text);white-space:nowrap;}
 .trt{font-size:11px;padding:3px 10px;border-radius:var(--radius-pill);background:var(--gray-bg);border:1px solid var(--gray-border);color:var(--text);cursor:pointer;}
-
-/* 필터 */
 .frow{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px;align-items:center;}
 .ftag{padding:6px 14px;border-radius:var(--radius-pill);border:1px solid var(--gray-border);background:var(--white);font-size:12px;cursor:pointer;color:var(--gray-text);font-family:'Noto Sans KR',sans-serif;}
 .ftag.on{background:var(--text);color:var(--white);border-color:var(--text);}
@@ -69,34 +59,24 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 .swrap input{padding:7px 12px 7px 30px;font-size:12px;border:1px solid var(--gray-border);border-radius:var(--radius-pill);background:var(--white);color:var(--text);outline:none;width:160px;font-family:'Noto Sans KR',sans-serif;}
 .swrap input:focus{border-color:var(--blue);}
 .sico{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--gray-text);pointer-events:none;}
-
-/* 카드 */
 .grid{display:grid;gap:16px;}
 .card{background:var(--white);border-radius:var(--radius);border:1px solid var(--gray-border);overflow:hidden;box-shadow:var(--shadow);transition:transform 0.15s,box-shadow 0.15s;}
 .card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.11);}
 .card.k{border-left:4px solid var(--pink);border-radius:0 var(--radius) var(--radius) 0;}
 .card.w{border-left:4px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;}
-
-/* 썸네일 */
-.thumb-wrap{position:relative;width:100%;height:200px;overflow:hidden;background:var(--gray-bg);}
-.thumb-wrap a{display:block;width:100%;height:100%;}
-.thumb-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s;}
-.card:hover .thumb-wrap img{transform:scale(1.03);}
+.thumb-area{position:relative;width:100%;height:200px;overflow:hidden;display:block;text-decoration:none;}
+.thumb-area img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s;}
+.card:hover .thumb-area img{transform:scale(1.03);}
 .thumb-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;}
-.thumb-wrap:hover .thumb-overlay{opacity:1;}
+.thumb-area:hover .thumb-overlay{opacity:1;}
 .play-btn{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.92);display:flex;align-items:center;justify-content:center;}
 .thumb-tl{position:absolute;top:10px;left:10px;}
 .thumb-tr{position:absolute;top:10px;right:10px;}
 .tbadge{font-size:10px;padding:3px 9px;border-radius:var(--radius-pill);font-weight:600;background:rgba(0,0,0,0.65);color:#fff;display:flex;align-items:center;gap:3px;}
 .ttime{font-size:10px;padding:3px 8px;border-radius:var(--radius-sm);background:rgba(0,0,0,0.65);color:#fff;font-family:monospace;font-weight:600;}
-.thumb-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;}
-.thumb-fallback{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;}
-.spinner{width:28px;height:28px;border:3px solid var(--gray-border);border-top-color:var(--blue);border-radius:50%;animation:spin 0.8s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg)}}
+.thumb-fallback{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:100%;height:200px;}
 .img-note{font-size:10px;color:var(--gray-text);padding:5px 14px;background:var(--gray-bg);display:flex;align-items:center;gap:5px;border-bottom:1px solid var(--gray-border);}
 .iybadge{font-size:10px;padding:1px 7px;border-radius:var(--radius-pill);font-weight:600;background:var(--red-light);color:var(--red-dark);}
-
-/* 카드 내부 */
 .cin{padding:16px 18px;}
 .ctop{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:10px;}
 .cmeta{display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
@@ -112,8 +92,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 .ts-ago{font-size:10px;color:var(--green);font-weight:600;}
 .ctitle{font-size:16px;font-weight:700;color:var(--text);line-height:1.5;margin-bottom:10px;}
 .cbody{font-size:13px;color:var(--gray-text);line-height:1.85;margin-bottom:12px;word-break:keep-all;}
-
-/* 번역 */
 .ttabs{display:flex;gap:5px;margin-bottom:8px;flex-wrap:wrap;}
 .ttab{padding:4px 11px;border-radius:var(--radius-pill);font-size:11px;cursor:pointer;border:1px solid var(--gray-border);background:var(--white);color:var(--gray-text);font-family:'Noto Sans KR',sans-serif;}
 .ttab.ak{background:var(--pink);color:var(--white);border-color:var(--pink);}
@@ -125,41 +103,33 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 .tbadge2.k{color:var(--pink-dark);}
 .tbadge2.w{color:var(--blue-dark);}
 .ttext{font-size:13px;color:var(--text);line-height:1.75;word-break:keep-all;}
-
-/* 푸터 버튼 */
 .cfooter{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--gray-border);}
 .abtn{display:flex;align-items:center;gap:3px;font-size:11px;color:var(--gray-text);cursor:pointer;padding:4px 10px;border-radius:var(--radius-pill);border:1px solid var(--gray-border);background:transparent;font-family:'Noto Sans KR',sans-serif;}
 .abtn.liked{color:var(--pink);border-color:var(--pink);}
 .htags{font-size:10px;color:var(--gray-text);}
-
-/* 숏츠 */
 .shorts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px 16px;border-top:1px solid var(--gray-border);background:var(--gray-bg);}
 .sc{border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--gray-border);background:var(--white);position:relative;transition:transform 0.15s;text-decoration:none;display:block;}
 .sc:hover{transform:translateY(-2px);}
-.sthumb{height:70px;overflow:hidden;background:var(--gray-bg);display:flex;align-items:center;justify-content:center;}
+.sthumb{height:70px;overflow:hidden;background:var(--gray-bg);}
 .sthumb img{width:100%;height:100%;object-fit:cover;}
 .splay{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;}
 .sinfo{padding:6px 8px;}
 .stitle{font-size:10px;color:var(--text);font-weight:600;line-height:1.4;margin-bottom:2px;}
 .sch{font-size:10px;color:var(--gray-text);}
-
-/* 푸터 */
 .footer{text-align:center;margin-top:32px;padding-top:20px;border-top:1px solid var(--gray-border);}
 .footer-logo{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;margin-bottom:6px;}
 .footer-txt{font-size:11px;color:var(--gray-text);line-height:1.9;}
-
 @media(max-width:480px){
   .lang-grid{grid-template-columns:1fr;}
   .stats{grid-template-columns:repeat(2,1fr);}
   .shorts{grid-template-columns:repeat(2,1fr);}
-  .thumb-wrap{height:170px;}
+  .thumb-area,.thumb-fallback{height:170px;}
   .swrap input{width:130px;}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
-
 <div class="hdr">
   <div class="hdr-top">
     <div>
@@ -205,7 +175,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
   <div class="stat"><div class="stat-n">6</div><div class="stat-l">오늘 전체 뉴스</div></div>
   <div class="stat"><div class="stat-n">4</div><div class="stat-l">K-Star 언어</div></div>
   <div class="stat"><div class="stat-n">2</div><div class="stat-l">Global 언어</div></div>
-  <div class="stat"><div class="stat-n" id="api-st">🔄</div><div class="stat-l">YouTube API</div></div>
+  <div class="stat"><div class="stat-n">✅</div><div class="stat-l">YouTube 연동</div></div>
 </div>
 
 <div class="trending">
@@ -233,22 +203,31 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray-bg);color:var(-
 
 <div class="footer">
   <div class="footer-logo">StarBridge</div>
-  <div class="footer-txt">
-    K-Star & Global 연예 뉴스 실시간 4개국어 번역<br>
-    YouTube Data API v3 + Firebase 캐싱<br>
-    © 2026 StarBridge
-  </div>
+  <div class="footer-txt">K-Star & Global 연예 뉴스 실시간 4개국어 번역<br>© 2026 StarBridge</div>
 </div>
 </div>
 
 <script>
-// ===== 뉴스 데이터 =====
+const LF={en:'🇺🇸',es:'🇲🇽',pt:'🇧🇷',kr:'🇰🇷'};
+const LN={en:'English',es:'Español',pt:'Português',kr:'한국어'};
+const KL=['en','es','pt','kr'], WL=['en','kr'];
+
+// yt() : 유튜브 썸네일 URL 생성
+function yt(id){ return 'https://i.ytimg.com/vi/'+id+'/hqdefault.jpg'; }
+function ytUrl(id){ return 'https://www.youtube.com/watch?v='+id; }
+
 const NEWS = [
   {
     id:1, side:'k', cat:'kpop', hot:true, hasShorts:true,
-    source:'Naver 연예', pub: Date.now()-3*60*1000,
-    ytq:'aespa WDA MV SMTOWN',
-    sq:['aespa Drama MV','aespa Spicy MV','aespa Next Level MV'],
+    source:'Naver 연예', pub:Date.now()-3*60*1000,
+    thumb: yt('iTJSbJtS8MU'),  // aespa WDA MV (SMTOWN 공식)
+    vidUrl: ytUrl('iTJSbJtS8MU'),
+    channel: 'SMTOWN',
+    shorts:[
+      {title:'aespa - Drama MV', thumb:yt('XKt-OqYKqPM'), url:ytUrl('XKt-OqYKqPM'), ch:'SMTOWN'},
+      {title:'aespa - Supernova MV', thumb:yt('4r0vE4GdQpU'), url:ytUrl('4r0vE4GdQpU'), ch:'SMTOWN'},
+      {title:'aespa - Spicy MV', thumb:yt('yWgFGkFDt3o'), url:ytUrl('yWgFGkFDt3o'), ch:'SMTOWN'},
+    ],
     title:'aespa, 컴백 D-3 티저 공개… 타이틀곡 "WDA" 예고',
     body:'SM엔터테인먼트 걸그룹 aespa가 오는 17일 새 앨범 발매를 앞두고 타이틀곡 "WDA" 티저를 공개했다. 이번 앨범은 aespa의 세계관을 한층 확장한 작품으로 독특한 콘셉트와 강렬한 퍼포먼스가 특징이다. 티저 공개 직후 전 세계 트위터 트렌딩 1위에 오르며 글로벌 팬들의 뜨거운 반응을 얻고 있다.',
     trans:{
@@ -261,9 +240,14 @@ const NEWS = [
   },
   {
     id:2, side:'w', cat:'pop', hot:true, hasShorts:true,
-    source:'Billboard', pub: Date.now()-23*60*1000,
-    ytq:'Taylor Swift Anti Hero official MV',
-    sq:['Taylor Swift Shake It Off MV','Taylor Swift Blank Space MV'],
+    source:'Billboard', pub:Date.now()-23*60*1000,
+    thumb: yt('b1kbLwvqugk'),  // Taylor Swift - Anti-Hero MV
+    vidUrl: ytUrl('b1kbLwvqugk'),
+    channel: 'Taylor Swift',
+    shorts:[
+      {title:'Taylor Swift - Shake It Off', thumb:yt('nfWlot6h_JM'), url:ytUrl('nfWlot6h_JM'), ch:'TaylorSwiftVEVO'},
+      {title:'Taylor Swift - Blank Space', thumb:yt('e-ORhEE9VVg'), url:ytUrl('e-ORhEE9VVg'), ch:'TaylorSwiftVEVO'},
+    ],
     title:"Taylor Swift's 'Tortured Poets Department' breaks Spotify single-week record",
     body:"Taylor Swift's latest album has shattered Spotify's all-time record for most streams in a single week, surpassing 1 billion plays within just 5 days. The achievement makes Swift the first artist in history to reach this milestone so quickly. The 31-track album dominated charts in over 100 countries simultaneously.",
     trans:{
@@ -274,9 +258,15 @@ const NEWS = [
   },
   {
     id:3, side:'k', cat:'kdrama', hot:false, hasShorts:true,
-    source:'Naver TV', pub: Date.now()-68*60*1000,
-    ytq:'BLACKPINK Pink Venom official MV',
-    sq:['NewJeans Hype Boy MV','IVE After Like MV'],
+    source:'Naver TV', pub:Date.now()-68*60*1000,
+    thumb: yt('gQlMMD8auMs'),  // BLACKPINK - Pink Venom MV
+    vidUrl: ytUrl('gQlMMD8auMs'),
+    channel: 'BLACKPINK',
+    shorts:[
+      {title:'NewJeans - Hype Boy MV', thumb:yt('0oDRDNh2Coc'), url:ytUrl('0oDRDNh2Coc'), ch:'NewJeans'},
+      {title:'IVE - After Like MV', thumb:yt('F4apZQBkwkw'), url:ytUrl('F4apZQBkwkw'), ch:'IVE'},
+      {title:'BLACKPINK - Shut Down MV', thumb:yt('tyWi3e3kp-k'), url:ytUrl('tyWi3e3kp-k'), ch:'BLACKPINK'},
+    ],
     title:'차은우·박은빈 주연 드라마, 넷플릭스 전세계 비영어권 1위 등극',
     body:'넷플릭스 오리지널 한국 드라마가 공개 첫 주 만에 전세계 비영어권 TV 부문 1위를 차지했다. 두 배우의 뛰어난 연기력과 탄탄한 스토리라인이 전 세계 시청자들의 마음을 사로잡았다. 미국, 일본, 동남아시아 등 주요 시장에서 동시 1위를 달성하며 역대 한국 드라마 중 가장 빠른 속도로 글로벌 시청 시간 1억 시간을 돌파했다.',
     trans:{
@@ -289,9 +279,11 @@ const NEWS = [
   },
   {
     id:4, side:'w', cat:'pop', hot:false, hasShorts:false,
-    source:'Rolling Stone', pub: Date.now()-142*60*1000,
-    ytq:'Billie Eilish bad guy official MV',
-    sq:[],
+    source:'Rolling Stone', pub:Date.now()-142*60*1000,
+    thumb: yt('DyDfgMOUjCI'),  // Billie Eilish - bad guy MV
+    vidUrl: ytUrl('DyDfgMOUjCI'),
+    channel: 'Billie Eilish',
+    shorts:[],
     title:"Billie Eilish announces world tour — Seoul stop confirmed for September 2026",
     body:"Billie Eilish has officially announced her world tour with an Asia leg that includes Seoul, South Korea. The Grammy-winning artist will perform at KSPO Dome in September 2026, her first solo concert in Korea in four years. The tour covers major cities across North America, Europe, and Australia before arriving in Asia.",
     trans:{
@@ -302,9 +294,15 @@ const NEWS = [
   },
   {
     id:5, side:'k', cat:'kpop', hot:true, hasShorts:true,
-    source:'Soompi', pub: Date.now()-195*60*1000,
-    ytq:'BTS Dynamite official MV',
-    sq:['BTS Butter official MV','BTS Boy With Luv MV'],
+    source:'Soompi', pub:Date.now()-195*60*1000,
+    thumb: yt('gdZLi9oWNZg'),  // BTS - Dynamite MV
+    vidUrl: ytUrl('gdZLi9oWNZg'),
+    channel: 'HYBE LABELS',
+    shorts:[
+      {title:'BTS - Butter MV', thumb:yt('WNweEQFn3-w'), url:ytUrl('WNweEQFn3-w'), ch:'HYBE LABELS'},
+      {title:'BTS - Boy With Luv MV', thumb:yt('XsX3ATc3FbA'), url:ytUrl('XsX3ATc3FbA'), ch:'HYBE LABELS'},
+      {title:'BTS - Permission to Dance', thumb:yt('CuklIb9d3fI'), url:ytUrl('CuklIb9d3fI'), ch:'HYBE LABELS'},
+    ],
     title:'BTS 정국, 깜짝 솔로 싱글 45개국 아이튠즈 1위 등극',
     body:'BTS 멤버 정국이 군 복무 중 깜짝 솔로 싱글을 발매해 전 세계 팬들을 놀라게 했다. 발매 수 시간 만에 45개국 아이튠즈 차트 정상에 오르며 자신의 솔로 기록을 경신했다. 군 복무 중인 K팝 아이돌의 아이튠즈 최단 1위 기록으로 글로벌 팬덤 아미의 강력한 응집력을 다시 한번 입증했다.',
     trans:{
@@ -317,9 +315,14 @@ const NEWS = [
   },
   {
     id:6, side:'w', cat:'pop', hot:true, hasShorts:true,
-    source:'People', pub: Date.now()-253*60*1000,
-    ytq:'Beyonce CUFF IT official MV',
-    sq:["Beyonce Halo official MV","Beyonce Crazy In Love MV"],
+    source:'People', pub:Date.now()-253*60*1000,
+    thumb: yt('Y9o_MFRFe7Y'),  // Beyonce - CUFF IT MV (Vevo)
+    vidUrl: ytUrl('Y9o_MFRFe7Y'),
+    channel: 'Beyoncé Vevo',
+    shorts:[
+      {title:'Beyoncé - HALO MV', thumb:yt('bnVUHWCynig'), url:ytUrl('bnVUHWCynig'), ch:'BeyonceVevo'},
+      {title:'Beyoncé - Crazy In Love', thumb:yt('ViwtNLUqkMY'), url:ytUrl('ViwtNLUqkMY'), ch:'BeyonceVevo'},
+    ],
     title:"Beyoncé's Renaissance Act III film wins 3 MTV Movie Awards",
     body:"Beyoncé had a triumphant night at the MTV Movie & TV Awards with her Renaissance Act III concert film sweeping Best Musical Performance, Best Choreography, and Best Visual Album Film. The wins cement the legacy of her Renaissance World Tour which became the highest-grossing tour by a female artist in history, earning over $580 million.",
     trans:{
@@ -330,18 +333,8 @@ const NEWS = [
   }
 ];
 
-// ===== 상수 =====
-const LF = {en:'🇺🇸',es:'🇲🇽',pt:'🇧🇷',kr:'🇰🇷'};
-const LN = {en:'English',es:'Español',pt:'Português',kr:'한국어'};
-const KL = ['en','es','pt','kr'];
-const WL = ['en','kr'];
-const API = 'https://beautiful-truffle-2cebb3.netlify.app/api/youtube';
+let mode='all', filt='all', kw='', kLang='en', wLang='en', openT={}, likes={};
 
-// ===== 상태 =====
-let mode='all', filt='all', kw='', kLang='en', wLang='en';
-let openT={}, likes={}, cache={};
-
-// ===== 시계 =====
 function pad(n){return String(n).padStart(2,'0');}
 function fDate(d){const t=new Date(d);return t.getFullYear()+'.'+pad(t.getMonth()+1)+'.'+pad(t.getDate());}
 function fTime(d){const t=new Date(d);return pad(t.getHours())+':'+pad(t.getMinutes());}
@@ -362,85 +355,6 @@ function tick(){
 }
 setInterval(tick,1000); tick();
 
-// ===== YouTube API =====
-async function fetchYT(q) {
-  if(cache[q]) return cache[q];
-  try {
-    const r = await fetch(API+'?q='+encodeURIComponent(q));
-    const d = await r.json();
-    if(d.items && d.items.length>0) {
-      const item = d.items[0];
-      if(item.videoId) {
-        cache[q] = item;
-        return item;
-      }
-    }
-  } catch(e) { console.log('YT 오류:',q,e); }
-  return null;
-}
-
-async function loadAll() {
-  const st = document.getElementById('api-st');
-  if(st) st.textContent='🔄';
-  const all = [];
-  NEWS.forEach(n => {
-    all.push(fetchYT(n.ytq));
-    (n.sq||[]).forEach(q => all.push(fetchYT(q)));
-  });
-  await Promise.allSettled(all);
-  if(st) st.textContent='✅';
-  render();
-}
-
-// ===== 썸네일 HTML =====
-function thumbHTML(n) {
-  const yt = cache[n.ytq];
-  const dt = fDate(n.pub)+' '+fTime(n.pub);
-  if(yt && yt.thumb) {
-    const url = 'https://www.youtube.com/watch?v='+yt.videoId;
-    return `
-      <div class="thumb-wrap">
-        <a href="${url}" target="_blank" rel="noopener">
-          <img src="${yt.thumb}" alt="${yt.title||''}">
-          <div class="thumb-overlay"><div class="play-btn"><i class="ti ti-player-play" style="font-size:22px;color:#333"></i></div></div>
-        </a>
-        <div class="thumb-tl"><span class="tbadge"><i class="ti ti-brand-youtube" style="font-size:11px"></i> YouTube 공식</span></div>
-        <div class="thumb-tr"><span class="ttime">${dt}</span></div>
-      </div>
-      <div class="img-note"><span class="iybadge"><i class="ti ti-brand-youtube" style="font-size:10px"></i> YouTube</span>YouTube Data API v3 · ${yt.channel||''}</div>`;
-  }
-  const bg={kpop:'#FBEAF0',kdrama:'#F0EBF8',pop:'#E6F1FB'}[n.cat]||'#F8F8F6';
-  const ico={kpop:'🎤',kdrama:'🎬',pop:'🌟'}[n.cat]||'🎵';
-  return `
-    <div class="thumb-wrap">
-      <div class="thumb-loading" style="background:${bg}">
-        <div class="spinner"></div>
-        <span style="font-size:11px;color:#6B6B68">YouTube 검색 중...</span>
-      </div>
-      <div class="thumb-tr"><span class="ttime">${dt}</span></div>
-    </div>
-    <div class="img-note"><span class="iybadge">YouTube</span>검색 중...</div>`;
-}
-
-function shortHTML(q) {
-  const yt = cache[q];
-  if(yt && yt.videoId) {
-    return `<a href="https://www.youtube.com/watch?v=${yt.videoId}" target="_blank" rel="noopener" class="sc">
-      <div class="sthumb"><img src="${yt.thumb}" alt="${yt.title||''}"></div>
-      <div class="splay"><i class="ti ti-player-play" style="font-size:13px;color:#fff"></i></div>
-      <div class="sinfo">
-        <div class="stitle">${(yt.title||q).substring(0,30)}</div>
-        <div class="sch">${yt.channel||''}</div>
-      </div>
-    </a>`;
-  }
-  return `<div class="sc" style="opacity:0.4">
-    <div class="sthumb" style="background:#F0F0F0;font-size:20px">🎵</div>
-    <div class="sinfo"><div class="stitle">${q.replace(' official MV','').replace(' MV','')}</div></div>
-  </div>`;
-}
-
-// ===== 컨트롤 =====
 function setMode(m){
   mode=m;
   ['all','k','w'].forEach(x=>document.getElementById('m-'+x).classList.toggle('on',x===m));
@@ -465,7 +379,20 @@ function doSearch(v){kw=v.toLowerCase(); render();}
 function toggleLike(id){likes[id]=!likes[id]; render();}
 function setTT(id,l){openT[id]=l; render();}
 
-// ===== 렌더링 =====
+function onImgErr(img, cat) {
+  const bg={kpop:'#FBEAF0',kdrama:'#F0EBF8',pop:'#E6F1FB'}[cat]||'#F8F8F6';
+  const ico={kpop:'🎤',kdrama:'🎬',pop:'🌟'}[cat]||'🎵';
+  const p = img.parentElement;
+  p.style.background = bg;
+  p.style.display = 'flex';
+  p.style.flexDirection = 'column';
+  p.style.alignItems = 'center';
+  p.style.justifyContent = 'center';
+  p.style.gap = '8px';
+  img.style.display = 'none';
+  p.insertAdjacentHTML('beforeend','<span style="font-size:44px">'+ico+'</span><span style="font-size:12px;color:#6B6B68">이미지 준비 중</span>');
+}
+
 function render(){
   let list = NEWS.filter(n=>{
     if(mode==='k'&&n.side!=='k')return false;
@@ -491,18 +418,29 @@ function render(){
     const langs = isK?KL:WL;
     const al = openT[n.id]||(isK?kLang:wLang);
     const ac = isK?'ak':'aw';
-    const bc = isK?'k':'w';
     const bk = isK?'bk':'bw';
     const lbc = isK?'k':'w';
     const bt = isK?'K-Star → '+LF[al]+' '+LN[al]:'Global → '+LF[al]+' '+LN[al];
     const hb = n.hot?'<span class="badge bhot">HOT</span>':'';
     const sb = n.hasShorts?'<span class="badge bshorts">▶ 숏츠</span>':'';
     const tabs = langs.map(l=>`<button class="ttab ${al===l?ac:''}" onclick="setTT(${n.id},'${l}')">${LF[l]} ${LN[l]}</button>`).join('');
-    const shorts = n.hasShorts&&n.sq&&n.sq.length
-      ?`<div class="shorts">${n.sq.map(q=>shortHTML(q)).join('')}</div>`:'';
+    const shorts = n.hasShorts && n.shorts && n.shorts.length
+      ?`<div class="shorts">${n.shorts.map(s=>`
+        <a href="${s.url}" target="_blank" rel="noopener" class="sc">
+          <div class="sthumb"><img src="${s.thumb}" alt="${s.title}" onerror="this.parentElement.style.background='#F0F0F0';this.style.display='none'"></div>
+          <div class="splay"><i class="ti ti-player-play" style="font-size:13px;color:#fff"></i></div>
+          <div class="sinfo"><div class="stitle">${s.title}</div><div class="sch">${s.ch}</div></div>
+        </a>`).join('')}</div>`:'';
+    const dt = fDate(n.pub)+' '+fTime(n.pub);
 
     return `<div class="card ${sc}">
-      ${thumbHTML(n)}
+      <a href="${n.vidUrl}" target="_blank" rel="noopener" class="thumb-area">
+        <img src="${n.thumb}" alt="${n.title}" onerror="onImgErr(this,'${n.cat}')">
+        <div class="thumb-overlay"><div class="play-btn"><i class="ti ti-player-play" style="font-size:22px;color:#333"></i></div></div>
+        <div class="thumb-tl"><span class="tbadge"><i class="ti ti-brand-youtube" style="font-size:11px"></i> YouTube 공식</span></div>
+        <div class="thumb-tr"><span class="ttime">${dt}</span></div>
+      </a>
+      <div class="img-note"><span class="iybadge"><i class="ti ti-brand-youtube" style="font-size:10px"></i> YouTube</span>YouTube 공식 채널 · ${n.channel}</div>
       <div class="cin">
         <div class="ctop">
           <div class="cmeta"><span class="badge ${bk}">${bt}</span>${hb}${sb}</div>
@@ -516,7 +454,7 @@ function render(){
         <div class="ctitle">${n.title}</div>
         <div class="cbody">${n.body}</div>
         <div class="ttabs">${tabs}</div>
-        <div class="tbox ${bc}">
+        <div class="tbox ${lbc}">
           <div class="tbadge2 ${lbc}"><i class="ti ti-language" style="font-size:11px"></i> AI 번역 · ${LF[al]} ${LN[al]}</div>
           <div class="ttext">${n.trans[al]||''}</div>
         </div>
@@ -534,9 +472,7 @@ function render(){
   }).join('');
 }
 
-// ===== 시작 =====
 render();
-loadAll();
 setInterval(render, 60000);
 </script>
 </body>
