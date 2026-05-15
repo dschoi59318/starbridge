@@ -1,5 +1,73 @@
 // netlify/functions/youtube.js
-// YouTube Data API v3 서버사이드 프록시
+// YouTube Data API v3 + Firebase 캐싱
+
+const https = require('https');
+
+// Firebase REST API로 데이터 읽기
+function firebaseGet(projectId, path) {
+  return new Promise((resolve, reject) => {
+    const url = `https://${projectId}-default-rtdb.firebaseio.com/${path}.json`;
+    https.get(url, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try { resolve(JSON.parse(data)); }
+        catch(e) { resolve(null); }
+      });
+    }).on('error', reject);
+  });
+}
+
+// Firebase REST API로 데이터 쓰기
+function firebasePut(projectId, path, data) {
+  return new Promise((resolve, reject) => {
+    const body = JSON.stringify(data);
+    const options = {
+      hostname: `${projectId}-default-rtdb.firebaseio.com`,
+      path: `/${path}.json`,
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(body)
+      }
+    };
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => resolve(JSON.parse(data)));
+    });
+    req.on('error', reject);
+    req.write(body);
+    req.end();
+  });
+}
+
+// 유튜브 API 직접 호출
+function fetchFromYoutube(query, apiKey) {
+  return new Promise((resolve, reject) => {
+    const path = `/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=3&key=${apiKey}`;
+    const options = {
+      hostname: 'www.googleapis.com',
+      path: path,
+      method: 'GET'
+    };
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try { resolve({ status: res.statusCode, data: JSON.parse(data) }); }
+        catch(e) { reject(e); }
+      });
+    });
+    req.on('error', reject);
+    req.end();
+  });
+}
+
+// 캐시 키 생성 (특수문자 제거)
+function cacheKey(query) {
+  return query.replace(/[^a-zA-Z0-9가-힣]/g, '_').substring(0, 50);
+}
 
 exports.handler = async function(event, context) {
   const headers = {
@@ -14,32 +82,47 @@ exports.handler = async function(event, context) {
 
   const query = event.queryStringParameters && event.queryStringParameters.q;
   if (!query) {
-    return {
-      statusCode: 400,
-      headers,
-      body: JSON.stringify({ error: 'q 파라미터가 필요합니다' })
-    };
+    return { statusCode: 400, headers, body: JSON.stringify({ error: 'q 파라미터 필요' }) };
   }
 
   const API_KEY = process.env.YOUTUBE_API_KEY;
+  const FB_PROJECT = process.env.FIREBASE_PROJECT_ID;
+
   if (!API_KEY) {
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({ error: 'API 키가 설정되지 않았습니다' })
-    };
+    return { statusCode: 500, headers, body: JSON.stringify({ error: 'API 키 없음' }) };
   }
 
-  try {
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=3&key=${API_KEY}`;
-    const response = await fetch(url);
-    const data = await response.json();
+  const key = cacheKey(query);
+  const cachePath = `ytcache/${key}`;
+  const CACHE_TTL = 24 * 60 * 60 * 1000; // 24시간
 
-    if (!response.ok) {
+  // 1. Firebase 캐시 확인
+  if (FB_PROJECT) {
+    try {
+      const cached = await firebaseGet(FB_PROJECT, cachePath);
+      if (cached && cached.timestamp && (Date.now() - cached.timestamp) < CACHE_TTL) {
+        console.log(`캐시 히트: ${query}`);
+        return {
+          statusCode: 200,
+          headers,
+          body: JSON.stringify({ items: cached.items, cached: true })
+        };
+      }
+    } catch(e) {
+      console.log('캐시 읽기 실패:', e.message);
+    }
+  }
+
+  // 2. YouTube API 호출
+  console.log(`YouTube API 호출: ${query}`);
+  try {
+    const { status, data } = await fetchFromYoutube(query, API_KEY);
+
+    if (status !== 200) {
       return {
-        statusCode: response.status,
+        statusCode: status,
         headers,
-        body: JSON.stringify({ error: data.error && data.error.message || '유튜브 API 오류' })
+        body: JSON.stringify({ error: data.error && data.error.message || 'YouTube API 오류' })
       };
     }
 
@@ -53,12 +136,27 @@ exports.handler = async function(event, context) {
       publishedAt: item.snippet.publishedAt
     }));
 
+    // 3. Firebase에 캐시 저장
+    if (FB_PROJECT && items.length > 0) {
+      try {
+        await firebasePut(FB_PROJECT, cachePath, {
+          items,
+          timestamp: Date.now(),
+          query
+        });
+        console.log(`캐시 저장: ${query}`);
+      } catch(e) {
+        console.log('캐시 저장 실패:', e.message);
+      }
+    }
+
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ items })
+      body: JSON.stringify({ items, cached: false })
     };
-  } catch (err) {
+
+  } catch(err) {
     return {
       statusCode: 500,
       headers,
